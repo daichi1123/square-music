@@ -12,7 +12,7 @@
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
                 @if (Auth::check())
-                    <li class="nav-item"><a href="/" class="nav-link text-white">プレイリスト登録</a></li>
+                    <li class="nav-item"><a href="{{ route('songs.create') }}" class="nav-link text-white" name="id" value={{ Auth::id() }}>プレイリスト登録</a></li>
                     <li class="nav-item"><a href="/" class="nav-link text-white">検索</a></li>
                     <li class="nav-item"><a href="/" class="nav-link text-white">いいね</a></li>
                     <li class="nav-item"><a href="/" class="nav-link text-white">ユーザ情報</a></li>
