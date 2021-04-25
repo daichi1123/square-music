@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Country::class);
     }
+
+    public function songs()
+    {
+        return $this->hasMany(Song::class);
+    }
 }
