@@ -13,9 +13,9 @@
         @csrf
             <div class="form-group mt-5">
                 <label></label>
-                <br>例）PlaylistのURLが <span>https://open.spotify.com/playlist/2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ なら</span>
-                <div>  "playlist/"の直後の "<span class="text-success">2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ</span>" を入力</div>
-                <div class="text-danger">＊プレイリスト以外の登録はできません</div>
+                <br>例）PlaylistのURLが <span>https://open.spotify.com/playlist/2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ なら</span>
+                <div> &emsp; "<span class="text-success">playlist/</span>"の直後の "<span class="text-success">2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ</span>" を入力</div>
+                <div class="text-danger mt-1 mb-1">＊プレイリスト以外の登録はできません</div>
                 <input name="url" class='form-control' placeholder="2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ (SpotifyURL入力欄)" autofocus>
             </div>
 
@@ -24,7 +24,7 @@
                 <input name="comment" class="form-control" placeholder="このプレイリストについてのコメント">
             </div>    
                 <div class="d-flex justify-content-around col-sm-8 col-auto container">
-                    <input type=submit value="登録" class="btn btn-lg btn-primary mt-5">
+                    <input type="submit" value="登録" class="btn btn-lg btn-primary mt-5">
                 </div>
             </div>
         </from>

@@ -1,5 +1,5 @@
 
-<h2 class="mt-5 mb-5">users</h2>
+<h2 class="mt-5 mb-5">Users</h2>
 
 <div class="movies row mt-5 text-center">
     @foreach ($users as $key => $user)
@@ -16,11 +16,12 @@
                 <div>
                     @if($song)
                         <div class="text-right">
+                            <span class="badge badge-pill badge-danger">未実装</span>
                         </div>
                         <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     @else
                         <div class="text-right">
-                            <span class="badge badge-pill badge-danger">未登録</span>
+                            <span class="badge badge-pill badge-danger">未実装</span>
                         </div>
                         <iframe src="https://open.spotify.com/playlist/" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                     @endif
