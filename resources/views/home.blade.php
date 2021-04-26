@@ -9,8 +9,10 @@
 
     <div class="text-right">
         @if(Auth::check())
-            {{ Auth::user()->name }}
+            {{ Auth::user()->first_name }}
         @endif
     </div>
+
+    @include('users.users', compact('users'))
 
 @endsection
