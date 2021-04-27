@@ -28,7 +28,6 @@ Route::group(['prefix' => 'users/{id}'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-    Route::put('users', 'UsersController@rename')->name('rename');
     
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'UserFollowController@store')->name('follow');

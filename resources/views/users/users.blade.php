@@ -1,5 +1,5 @@
 
-<h2 class="mt-5 mb-5">Users</h2>
+<h1 class="mt-4">Users</h1>
 
 <div class="movies row mt-5 text-center">
     @foreach ($users as $key => $user)
