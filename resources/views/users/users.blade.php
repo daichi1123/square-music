@@ -33,6 +33,7 @@
                         <span>※コメント登録されてません</span>
                     @endif
                 </p>
+                @include('follow.follow_button', compact('user'))
             </div>
         </div>
     @endforeach
