@@ -1,4 +1,4 @@
-<div class="movies row mt-3 text-center">
+<div class="songs row mt-3 text-center">
     @foreach ($songs as $key => $song)
         @if($loop->iteration % 3 == 1 && $loop->iteration != 1)
             </div>
@@ -27,9 +27,9 @@
                         @endif
                     </p>
                     @if(Auth::id() == $song->user_id)
-                        <form action="{{ route('songs.destroy', $song->id) }}" method='post'>
+                        <form action="{{ route('songs.destroy', $song->id) }}" method='POST'>
                         @csrf
-                            <input type="hidden" name="_method" value="POST">
+                        @method('DELETE')
                             <input type="submit" value="プレイリストを削除する" class="button btn btn-danger">
                         </form>
                     @endif
