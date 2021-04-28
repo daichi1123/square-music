@@ -28,6 +28,11 @@ Route::group(['prefix' => 'users/{id}'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
+
+    Route::group(['prefix'=>'songs/{id}'],function(){
+        Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
+        Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+     });
     
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'UserFollowController@store')->name('follow');

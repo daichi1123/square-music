@@ -9,12 +9,14 @@
                     <div>
                         @if($song)
                             <div class="text-right">
-                                <span class="badge badge-pill badge-danger">未実装</span>
+                                <span class="badge badge-pill badge-success">
+                                        いいね{{ $song->favorite_users->count() }} 
+                                </span>
                             </div>
                             <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                         @else
                             <div class="text-right">
-                                <span class="badge badge-pill badge-danger">未実装</span>
+                                <span class="badge badge-pill badge-danger">未登録</span>
                             </div>
                             <iframe src="https://open.spotify.com/embed/" width="300" height="380" frameborder="0"></iframe>
                         @endif
@@ -27,11 +29,9 @@
                         @endif
                     </p>
                     @if(Auth::id() == $song->user_id)
-                        <form action="{{ route('songs.destroy', $song->id) }}" method='POST'>
-                        @csrf
-                        @method('DELETE')
-                            <input type="submit" value="プレイリストを削除する" class="button btn btn-danger">
-                        </form>
+                        {!! Form::open(['route' => ['songs.destroy', $song->id], 'method' => 'delete']) !!}
+                            {!! Form::submit('プレイリストを削除する', ['class' => 'button btn btn-danger']) !!}
+                        {!! Form::close() !!}
                     @endif
                 </div>
             </div>
