@@ -13,6 +13,6 @@
         @endif
     </div>
 
-    @include('users.users', compact('users'))
+    @include('users.users')
 
 @endsection

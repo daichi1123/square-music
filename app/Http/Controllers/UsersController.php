@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\User;
+use App\Song;
 
 class UsersController extends Controller
 {
@@ -36,8 +37,8 @@ class UsersController extends Controller
         $followings = $user->followings()->paginate(9);
 
         $data = [
-            'user' => $user,
-            'users' => $followings,
+            'user' => $user, 
+            'users' => $followings, 
         ];
 
         $data += $this->counts($user);
