@@ -39,7 +39,7 @@ class SongsController extends Controller
 
     public function destroy($id)
     {
-        $song=Song::findOrFail($id);
+        $song = Song::findOrFail($id);
         if(\Auth::id() == $song->user_id) {
             $song->delete();
         }

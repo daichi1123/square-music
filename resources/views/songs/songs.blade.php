@@ -23,7 +23,7 @@
                     </div>
                     <p>
                         @if(isset($song->comment))
-                               コメント：{{ $song->comment }}
+                            コメント：{{ $song->comment }}
                         @else
                             <span>※コメント登録されてません</span>
                         @endif

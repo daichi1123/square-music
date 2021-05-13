@@ -13,29 +13,31 @@
         @endif
         <div class="col-lg-4 mb-5">
             <div class="movie text-left d-inline-block">
-                <b>{{ $user->first_name }}</b> <span>from</span> {{ $user->country->country_name }}
+                <b>{{ $user->first_name }}</b> <span>from</span> <b>{{ $user->country->country_name }}</b>
                 <div>
-                    @if($song)
-                        <div class="text-right">
-                            <span class="badge badge-pill badge-success">いいね {{ $song->favorite_users->count() }}</span>
-                        </div>
-                        <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                    @else
-                        <div class="text-right">
-                            <span class="badge badge-pill badge-danger">未実装</span>
-                        </div>
-                        <iframe src="https://open.spotify.com/playlist/" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-                    @endif
+                @if($song)
+                    <div class="text-right">
+                        <span class="badge badge-pill badge-success">いいね {{ $song->favorite_users->count() }}</span>
+                    </div>
+                    <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                @else
+                    <div class="text-right">
+                        <span class="badge badge-pill badge-danger">未登録</span>
+                    </div>
+                    <iframe src="https://open.spotify.com/playlist/" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                @endif
+                </div>
+                <div style='display: inline'>
+                @include('favorite.favorite_button', ['song'=>$song])
+                @include('follow.follow_button', ['user'=>$user])
                 </div>
                 <p>
-                    @if(isset($song->comment))
-                        {{ $song->comment }}
-                    @else
-                        <span>※コメント登録されてません</span>
-                    @endif
+                @if(isset($song->comment))
+                    {{ $song->comment }}
+                @else
+                    <span>※コメント登録されてません</span>
+                @endif
                 </p>
-                @include('follow.follow_button', ['user'=>$user])
-                @include('favorite.favorite_button', ['song'=>$song])
             </div>
         </div>
     @endforeach
