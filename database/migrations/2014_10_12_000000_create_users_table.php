@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('middle_name', 16)->nullable();
             $table->string('first_name', 16);
             $table->integer('country_id');
+            $table->integer('age_id');
+            $table->string('sex');
             $table->string('email', 128)->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();

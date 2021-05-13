@@ -22,6 +22,8 @@ class User extends Authenticatable
         'email',
         'password',
         'country_id',
+        'age_id',
+        'sex',
     ];
 
     /**
@@ -45,6 +47,11 @@ class User extends Authenticatable
     public function country()
     {
         return $this->belongsTo(Country::class);
+    }
+
+    public function age()
+    {
+        return $this->belongsTo(Age::class);
     }
 
     public function songs()
@@ -120,4 +127,4 @@ class User extends Authenticatable
     {
         return $this->favorites()->where('song_id',$songId)->exists();
     }
-}
+} 
