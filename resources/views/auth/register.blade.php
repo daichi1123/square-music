@@ -35,10 +35,27 @@
     <div class="form-group row">
         <label class="country_id col-sm-4 col-form-label text-sm-right">国名</label>
         <select name="country_id" class="form-control col-sm-4">
-            @foreach(config('country_list') as $countryId => $countryName)
-                <option value="{{ $countryId }}">{{$countryName}}</option>
-            @endforeach
+        @foreach(config('country_list') as $countryId => $countryName)
+            <option value="{{ $countryId }}">{{$countryName}}</option>
+        @endforeach
         </select>
+    </div>
+    <div class="form-group row">
+        <label for="radio01" class="col-md-4 col-form-label text-md-right">性別</label>
+        <div class="col-md-6 mt-1">
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1">
+                <label class="form-check-label" for="inlineRadio01">男性</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" checked="checked">
+                <label class="form-check-label" for="inlineRadio02">女性</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3" checked="checked">
+                <label class="form-check-label" for="inlineRadio03">その他</label>
+            </div>
+        </div>
     </div>
     <div class="d-flex justify-content-around py-5 col-sm-8 col-auto container">
         <input type="submit" class="btn btn-primary" value="登録">

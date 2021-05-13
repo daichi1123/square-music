@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\User;
 use App\Song;
+use App\Country;
 
 class UsersController extends Controller
 {
@@ -60,5 +61,38 @@ class UsersController extends Controller
 
         return view('users.followers', $data);
     }
+    
+    public function search(Request $request, Song $songs) {
+        $query = User::query();
+        $countries = Country::pickUpColumn();
 
+        $searchName = $request->input('user_name');
+        $countryId = $request->input('country_id');
+
+        if (isset($searchName)) {
+            $query->where('product_name', 'like', '%'.$searchName.'%');
+        }
+        if (isset($countryId)) {
+            $query->where('country_id', $countryId);
+        }
+
+        $users = $query->orderBy('country_id', 'asc')->paginate(9);
+
+        return view('users.search', compact('users', 'countries', 'searchName', 'categoryId', 'songs'));
+    }
+
+    public function showDetail(Song $song, $id)
+    {
+        $user = User::find($id);
+        $songs = $user->songs()->orderBy('id', 'desc')->paginate(9);
+
+        $data=[
+            'user' => $user,
+            'songs' => $songs,
+        ];
+
+        $data += $this->counts($user);
+
+        return view('users.user_detail', compact('user', 'songs', 'data'));
+    }
 }

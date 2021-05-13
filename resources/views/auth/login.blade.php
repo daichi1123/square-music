@@ -18,13 +18,13 @@
             @csrf
                 <div class="form-group">
                     <label name="email">メールアドレス：</label>
-                    <b style="color:red">sample1@gmail.com</b><br>
+                    <b style="color:red">test1@example.com</b><br>
                     <input type="text" name="email" value="{{ old('email') }}" class="form-control" autofocus>
                 </div>
 
                 <div class="form-group">
                     <label name="password">パスワード：</label>
-                    <b style="color:red">sampledata</b><br>
+                    <b style="color:red">example1</b><br>
                     <input type="text" name="password" class="form-control">
                 </div>
 
