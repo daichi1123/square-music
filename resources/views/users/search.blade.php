@@ -41,8 +41,10 @@
     <thead class="bg-success">
         <tr>
             <th>ユーザ名</th>
-            <th>登録プレイリスト数</th>
+            <th>プレイリスト数</th>
             <th>国名</th>
+            <th>年齢</th>
+            <th>性別</th>
             <th></th>
         </tr>
     </thead>
@@ -58,6 +60,8 @@
                 @endif
             </td>
             <td>{{ $user->country->country_name }}</td>
+            <td>{{ $user->age->age_name }}</td>
+            <td>{{ $user->sex }}</td>
             <td name="name" value="">
                 <a href="{{ action('UsersController@showDetail', $user->id) }}" class="btn btn-primary">ユーザ詳細画面</a>
             </td>

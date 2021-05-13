@@ -41,18 +41,26 @@
         </select>
     </div>
     <div class="form-group row">
+        <label class="age_id col-sm-4 col-form-label text-sm-right">年齢</label>
+        <select name="age_id" class="form-control col-sm-4">
+        @foreach(config('age_list') as $ageId => $ageName)
+            <option value="{{ $ageId }}">{{$ageName}}</option>
+        @endforeach
+        </select>
+    </div>
+    <div class="form-group row">
         <label for="radio01" class="col-md-4 col-form-label text-md-right">性別</label>
         <div class="col-md-6 mt-1">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="inlineRadio01" name="radioGrp01" value="1">
+                <input class="form-check-input" type="radio" id="inlineRadio01" name="sex" value="男性">
                 <label class="form-check-label" for="inlineRadio01">男性</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="inlineRadio02"  name="radioGrp01" value="2" checked="checked">
+                <input class="form-check-input" type="radio" id="inlineRadio02"  name="sex" value="女性">
                 <label class="form-check-label" for="inlineRadio02">女性</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" id="inlineRadio03"  name="radioGrp01" value="3" checked="checked">
+                <input class="form-check-input" type="radio" id="inlineRadio03"  name="sex" value="その他" checked="checked">
                 <label class="form-check-label" for="inlineRadio03">その他</label>
             </div>
         </div>

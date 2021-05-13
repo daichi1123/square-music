@@ -16,6 +16,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => '太郎',
             'email' => 'test1@example.com',
             'country_id' => '1',
+            'age_id' => '1',
+            'sex' => '男性',
             'password' => bcrypt('example1'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -24,6 +26,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => '一美',
             'email' => 'test2@example.com',
             'country_id' => '1',
+            'age_id' => '1',
+            'sex' => '女性',
             'password' => bcrypt('example2'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -32,6 +36,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => '浩一',
             'email' => 'test3@example.com',
             'country_id' => '1',
+            'age_id' => '2',
+            'sex' => '男性',
             'password' => bcrypt('example3'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -40,6 +46,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => '一郎',
             'email' => 'test4@example.com',
             'country_id' => '1',
+            'age_id' => '1',
+            'sex' => '男性',
             'password' => bcrypt('example4'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -49,6 +57,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => 'John',
             'email' => 'test5@example.com',
             'country_id' => '11',
+            'age_id' => '3',
+            'sex' => '男性',
             'password' => bcrypt('example5'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -58,6 +68,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => 'Aurora',
             'email' => 'test6@example.com',
             'country_id' => '10',
+            'age_id' => '3',
+            'sex' => '女性',
             'password' => bcrypt('example6'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -66,6 +78,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => 'Claudia',
             'email' => 'test7@example.com',
             'country_id' => '2',
+            'age_id' => '2',
+            'sex' => '女性',
             'password' => bcrypt('example7'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -74,6 +88,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => '伟',
             'email' => 'test8@example.com',
             'country_id' => '4',
+            'age_id' => '4',
+            'sex' => '男性',
             'password' => bcrypt('example8'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -82,6 +98,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => 'Anna',
             'email' => 'test9@example.com',
             'country_id' => '6',
+            'age_id' => '6',
+            'sex' => '女性',
             'password' => bcrypt('example9'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -90,6 +108,8 @@ class UsersTableSeeder extends Seeder
             'first_name' => 'Évariste',
             'email' => 'test10@example.com',
             'country_id' => '5',
+            'age_id' => '5',
+            'sex' => '男性',
             'password' => bcrypt('example10'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
