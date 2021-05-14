@@ -2,6 +2,17 @@
 
 @section('content')
 
+@if (session('flash_message_store'))
+    <div class="alert alert-success">
+        {{ session('flash_message_store') }}
+    </div>
+@endif
+@if (session('flash_message_delete'))
+    <div class="alert alert-danger">
+        {{ session('flash_message_delete') }}
+    </div>
+@endif
+
     <div class="text-right">
         {{ Auth::user()->first_name }}
     </div>
