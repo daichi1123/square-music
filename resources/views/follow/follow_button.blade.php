@@ -25,7 +25,3 @@
     @endif
 
 @endif
-
-<style>
-
-</style>

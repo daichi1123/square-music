@@ -16,7 +16,7 @@
                 <h1>ユーザー</h1>
             </div>
             <div class="col-lg-12 mt-4 mb-3">
-                <h2 class="text-left">ユーザ名：{{ $user->first_name }} {{ $user->middle_name }} {{ $user->last_name }}さん</h2>
+                <h2 class="text-left">ユーザ名：{{ $user->last_name }} {{ $user->middle_name }} {{ $user->first_name }}さん</h2>
             </div>
         </div>
         <div class="row text-right">
