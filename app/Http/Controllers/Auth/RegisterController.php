@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Country;
+use App\Age;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -48,11 +50,22 @@ class RegisterController extends Controller
      */
     protected function validator(array $data)
     {
+        $age = new Age();
+        // 値をデータベースのage_id登録数の最大値までにする
+        $maxAgeId = $age->max('id');
+
+        $country = new Country();
+        // 値をデータベースのcountry_id登録数の最大値までにする
+        $maxCountryId = $country->max('id');
+
         return Validator::make($data, [
-            'last_name' => ['required', 'string', 'max:16'],
-            'middle_name' => ['string', 'nullable', 'max:16'],
-            'first_name' => ['required', 'string', 'max:16'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'last_name' => ['required', 'string', 'max:24'],
+            'middle_name' => ['string', 'nullable', 'max:24'],
+            'first_name' => ['required', 'string', 'max:24'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
+            'age_id' => ['required', 'integer', 'max:'. $maxAgeId],
+            'country_id' => ['required', 'integer', 'max:'. $maxCountryId],
+            'sex' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

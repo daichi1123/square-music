@@ -26,11 +26,15 @@
     </div>
     <div class="form-group row">
         <label class="col-sm-4 col-form-label text-sm-center">パスワード</label>
-        <input class="col-sm-6" type="text" name="password">
+        <input class="col-sm-6 js-password" type="password" name="password">
     </div>
     <div class="form-group row">
         <label class="col-sm-4 col-form-label text-sm-center">パスワード確認</label>
-        <input class="col-sm-6" type="text" name="password_confirmation">
+        <input class="col-sm-6 js-password" type="password" name="password_confirmation">
+    </div>
+    <div>
+        <label class="offset-4" for="js-password">パスワードを表示する</label>
+        <input type="checkbox" id="js-passcheck">
     </div>
     <div class="form-group row">
         <label class="country_id col-sm-4 col-form-label text-sm-right">国名</label>
