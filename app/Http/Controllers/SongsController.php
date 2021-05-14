@@ -11,7 +11,7 @@ use App\Song;
 class SongsController extends Controller
 {
     /**
-     * ファイル内でContentデータをインスタンス化せずに使用可能にしている
+     * 他のメソッドでSongクラスをインスタンス化せずに使用可能にしている
      * 
      * @param  App\Song $song
      */
