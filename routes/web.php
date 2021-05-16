@@ -32,14 +32,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::group(['prefix'=>'songs/{id}'],function(){
         Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
         Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
-     });
+    });
     
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'UserFollowController@store')->name('follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
     });
 
-    Route::get('Users/{id}', 'UsersController@showDetail')->name('detail.user');
+    Route::get('user/detail/{id}', 'UsersController@showDetail')->name('detail.user');
     Route::get('search', 'UsersController@search')->name('users.search');
     Route::resource('songs', 'SongsController', ['only' => ['create', 'store', 'destroy']]);
 });

@@ -14,7 +14,7 @@
         <div class="row">
             <div class="input-group mt-4 col-md-7 offset-2">
                 <h2 class="mr-4">ユーザ名</h2>
-                <input type="text" class="form-control" name="product_name">
+                <input type="text" class="form-control" name="first_name">
                 <span class="input-group-btn">
                     <button type="submit" class="btn btn-primary ml-4">検索</button>
                 </span>
