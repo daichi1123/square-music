@@ -66,19 +66,19 @@ class UsersController extends Controller
         $query = User::query();
         $countries = Country::pickUpColumn();
 
-        $searchName = $request->input('user_name');
+        $searchName = $request->input('first_name');
         $countryId = $request->input('country_id');
 
         if (isset($searchName)) {
-            $query->where('product_name', 'like', '%'.$searchName.'%');
+            $query->where('first_name', 'like', '%'.$searchName.'%');
         }
         if (isset($countryId)) {
             $query->where('country_id', $countryId);
         }
 
-        $users = $query->orderBy('country_id', 'asc')->paginate(9);
+        $users = $query->orderBy('first_name', 'asc')->paginate(9);
 
-        return view('users.search', compact('users', 'countries', 'searchName', 'categoryId', 'songs'));
+        return view('users.search', compact('users', 'countries', 'songs'));
     }
 
     public function showDetail(Song $song, $id)

@@ -13,7 +13,7 @@
             <ul class="navbar-nav">
                 @if (Auth::check())
                 <li class="nav-item"><a href="{{ route('users.search') }}" class="nav-link text-white">ユーザ一覧</a></li>
-                    <li class="nav-item"><a href="{{ route('users.show', ['id'=>Auth::id()]) }}" name="id" class='nav-link text-white'>マイページ</a></li>
+                    <li class="nav-item"><a href="{{ route('users.show', auth()->user()->id) }}" name="id" class='nav-link text-white'>マイページ</a></li>
                     <li class="nav-item"><a href="{{ route('songs.create') }}" class="nav-link text-white" name="id" value={{ Auth::id() }}>プレイリスト登録</a></li>
                     <li class="nav-item"><a href="{{ route('logout') }}" class="nav-link text-white">ログアウト</a></li>
                 @else
