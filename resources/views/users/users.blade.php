@@ -1,3 +1,8 @@
+@if (session('flash_message'))
+    <div class="alert alert-success">
+        {{ session('flash_message') }}
+    </div>
+@endif
 
 <h1 class="mt-4">Users</h1>
 

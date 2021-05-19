@@ -2,17 +2,6 @@
 
 @section('content')
 
-@if (session('flash_message_store'))
-    <div class="alert alert-success">
-        {{ session('flash_message_store') }}
-    </div>
-@endif
-@if (session('flash_message_delete'))
-    <div class="alert alert-danger">
-        {{ session('flash_message_delete') }}
-    </div>
-@endif
-
     <div class="text-right">
         {{ Auth::user()->first_name }}
     </div>
@@ -31,7 +20,7 @@
                 {!! Form::text('comment',null,['class'=>'form-control', 'placeholder'=>'このプレイリストについてのコメント']) !!}
                 
                 <div class="d-flex justify-content-around col-sm-8 col-auto container">
-                    {!! Form::submit('登録',['class'=> 'btn btn-lg btn-primary mt-5']) !!}
+                    {!! Form::submit('登録', ['class'=> 'btn btn-lg btn-primary mt-5']) !!}
                 </div>
 
             </div>
@@ -46,7 +35,12 @@
         <h2 class="mt-3">Your Playlists</h2>
         @include('songs.songs')
 
-
-
+        <script>
+        @if (session('flash_message_delete'))
+            $(function () {
+                toastr.danger('{{ session('flash_message_delete') }}');
+            });
+        @endif
+        </script>
 
 @endsection

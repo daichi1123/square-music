@@ -29,6 +29,8 @@ Route::group(['prefix' => 'users/{id}'], function () {
 
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::post('/','SongsController@redirectPage')->name('top.page');
+
     Route::group(['prefix'=>'songs/{id}'],function(){
         Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
         Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
@@ -43,3 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('search', 'UsersController@search')->name('users.search');
     Route::resource('songs', 'SongsController', ['only' => ['create', 'store', 'destroy']]);
 });
+
+Route::get('/chat', 'ReviewController@index')->name('home');
+Route::post('/add', 'ReviewController@add')->name('chat.add');
+Route::get('/result/ajax', 'ReviewController@getData');
