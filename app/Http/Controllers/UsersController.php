@@ -19,7 +19,11 @@ class UsersController extends Controller
 
     public function show($id)
     {
-        $user = User::find($id);
+        $user = User::findOrFail($id);
+        if(auth()->user()->id !== $user->id) {
+            return back();
+        }
+
         $songs = $user->songs()->orderBy('id', 'desc')->paginate(9);
 
         $data=[

@@ -20,7 +20,6 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::resource('users', 'UsersController', ['only' => ['show']]);
 
 Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followings', 'UsersController@followings')->name('followings');
@@ -28,8 +27,7 @@ Route::group(['prefix' => 'users/{id}'], function () {
 });
 
 Route::group(['middleware' => 'auth'], function () {
-
-    Route::post('/','SongsController@redirectPage')->name('top.page');
+    Route::resource('users', 'UsersController', ['only' => ['show']]);
 
     Route::group(['prefix'=>'songs/{id}'],function(){
         Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
@@ -44,8 +42,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('user/detail/{id}', 'UsersController@showDetail')->name('detail.user');
     Route::get('search', 'UsersController@search')->name('users.search');
     Route::resource('songs', 'SongsController', ['only' => ['create', 'store', 'destroy']]);
-});
 
-Route::get('/chat', 'ReviewController@index')->name('home');
-Route::post('/add', 'ReviewController@add')->name('chat.add');
-Route::get('/result/ajax', 'ReviewController@getData');
+    Route::get('/chat', 'ReviewController@index')->name('home.chat');
+    Route::post('/add', 'ReviewController@add')->name('chat.add');
+    Route::get('/result/ajax', 'ReviewController@getData');
+});

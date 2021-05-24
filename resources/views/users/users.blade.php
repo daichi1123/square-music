@@ -29,7 +29,7 @@
                     <div class="text-right">
                         <span class="badge badge-pill badge-danger">未登録</span>
                     </div>
-                    <iframe src="https://open.spotify.com/playlist/" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                    <iframe src="https://open.spotify.com/embed/playlist/6UeSakyzhiEt4NB3UAd6NQ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 @endif
                 </div>
                 <div style='display: inline'>

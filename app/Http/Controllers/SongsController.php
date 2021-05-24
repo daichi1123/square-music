@@ -20,11 +20,6 @@ class SongsController extends Controller
         $this->song = $song;
     }
 
-    public function redirectPage()
-    {
-        return('users.users');
-    }
-
     /**
      * プレイリスト登録ページに遷移・自身が持っているプレイリスト一覧を表示
      */
@@ -60,7 +55,7 @@ class SongsController extends Controller
             ]);
         }, $retryTimes);
 
-        return redirect()->route('top.page')->with('flash_message', __('プレイリスト作成に成功しました。'));
+        return back()->with('flash_message_store', __('プレイリスト作成に成功しました。'));
     }
 
     /**

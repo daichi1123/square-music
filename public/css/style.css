@@ -33,7 +33,7 @@
 }
 
 .chat-card {
-    height: 67vh;
+    height: 48vh;
     overflow: auto;
 }
 
@@ -42,14 +42,13 @@
 }
 
 .review-container {
-    position: fixed;
     bottom: 20px;
     text-align: center;
     width: 100%;
 }
 
 .review-area {
-    width: 70%;
+    width: 100%;
 }
 
 .review-btn {
@@ -75,4 +74,4 @@
     margin-left: 5px;
     color: #a0a0a0;
 }
-  /*# sourceMappingURL=view.css.map */
+  /*# sourceMappingURL=style.css */

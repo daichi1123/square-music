@@ -6,6 +6,7 @@ use App\Review;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -26,8 +27,9 @@ class ReviewController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $reviews = Review::get();
-        return view('hometalk', compact('reviews'));
+        return view('users.user_detail', compact('reviews','user'));
     }
 
     public function add(Request $request)
@@ -40,13 +42,13 @@ class ReviewController extends Controller
             'review' => $review
         ]);
 
-        return redirect()->route('home');
+        return redirect()->route('home.chat');
     }
 
     public function getData()
     {
         $reviews = Review::orderBy('created_at', 'desc')->get();
         $json = ["reviews" => $reviews];
-        return response()->json($json);
+        return $this->jsonResponse($json);
     }
 }

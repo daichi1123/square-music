@@ -1,22 +1,22 @@
-(function() {
-  'use strict';
-  // フラッシュメッセージのfadeout
-  $(function(){
-    $('.flash_message').fadeOut(3000);
-  });
-})();
+// (function() {
+//   'use strict';
+//   // フラッシュメッセージのfadeout
+//   $(function(){
+//     $('.flash_message').fadeOut(3000);
+//   });
+// })();
 
-$(function() {
-  $('button').on('click', function() {
-    $(this).prop('disabled', true);
-    $('form').submit();
-  });
-});
+// $(function() {
+//   $('button').on('click', function() {
+//     $(this).prop('disabled', true);
+//     $('form').submit();
+//   });
+// });
 
 // 新規登録の際のパスワード表示・非表示
 $(function() {
-  var password = '.js-password';
-  var passcheck = '#js-passcheck';
+  let password = '.js-password';
+  let passcheck = '#js-passcheck';
 
   $(passcheck).change(function() {
     if($(this).prop('checked')) {
@@ -34,15 +34,15 @@ $(function() {
 
 function get_data() {
   $.ajax({
-    url: "result/ajax/",
+    url: "/result/ajax/",
     dataType: "json",
     success: data => {
       $("#review-data")
         .find(".review-visible")
         .remove();
 
-      for (var i = 0; i < data.reviews.length; i++) {
-        var html = `
+      for (let i = 0; i < data.reviews.length; i++) {
+        let html = `
             <div class="media review-visible">
               <div class="media-body review-body">
                 <div class="row">
@@ -58,7 +58,7 @@ function get_data() {
       }
     },
     error: () => {
-      alert("ajax Error");
+      console.log("ajax Error");
     }
   });
 
