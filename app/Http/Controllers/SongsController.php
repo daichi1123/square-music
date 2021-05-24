@@ -75,6 +75,6 @@ class SongsController extends Controller
             }, $retryTimes);   
         }
 
-        return back()->with('flash_message_delete', __('プレイリスト削除に成功しました。'));
+        return back()->with('flash_message_delete', 'プレイリスト削除に成功しました。');
     }
 }
