@@ -10,20 +10,20 @@
         </div>
     </div>
 
-    <form method="get" action="{{ route('users.search') }}">
+    <form action="{{ route('users.search') }}" method="get">
         <div class="row">
             <div class="input-group mt-4 col-md-7 offset-2">
                 <h2 class="mr-4">ユーザ名</h2>
-                <input type="text" class="form-control" name="first_name">
+                <input class="form-control" name="first_name" type="text" />
                 <span class="input-group-btn">
-                    <button type="submit" class="btn btn-primary ml-4">検索</button>
+                    <button class="btn btn-primary ml-4" type="submit">検索</button>
                 </span>
             </div>
         </div>
 
         <div class="form-group mt-4 col-md-7 offset-2">
             {!! Form::label('country_id', '国名', ['class' => 'h2']) !!}
-            <select name="country_id" class="form-control">
+            <select class="form-control" name="country_id">
                 @foreach(config('country_list') as $countryId => $countryName)
                     <option value="{{ $countryId }}">{{$countryName}}</option>
                 @endforeach
@@ -37,7 +37,7 @@
     </form>
 
     <p>全{{ $users->count() }}名</p>
-    <table border="3" class="table text-center mt-4" style="border-collapse: collapse">
+    <table class="table text-center mt-4" style="border-collapse: collapse" border="3">
     <thead class="bg-success">
         <tr>
             <th>ユーザ名</th>
@@ -62,8 +62,8 @@
             <td>{{ $user->country->country_name }}</td>
             <td>{{ $user->age->age_name }}</td>
             <td>{{ $user->sex }}</td>
-            <td name="name" value="">
-                <a href="{{ action('UsersController@showDetail', $user->id) }}" class="btn btn-primary">ユーザ詳細画面</a>
+            <td name="name">
+                <a class="btn btn-primary" href="{{ action('UsersController@showDetail', $user->id) }}">ユーザ詳細画面</a>
             </td>
         </tr>
     </tbody>

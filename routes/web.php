@@ -11,7 +11,7 @@
 |
 */
 
-Route::get('/', 'UsersController@index');
+Route::get('/', 'UsersController@index')->name('user.index');
 
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup');
 Route::post('signup', 'Auth\RegisterController@register')->name('signup.post');
@@ -34,11 +34,19 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
     });
     
+    Route::get('/mypage', 'UsersController@mypage')->name('mypage');
+    
     Route::group(['prefix' => 'users/{id}'], function () {
+        Route::get('/edit', 'UsersController@editUser')->name('user.edit');
+        Route::put('/update', 'UsersController@updateUser')->name('user.update');
+        Route::get('/update', 'UsersController@deletePage')->name('user.deletePage');
+        Route::put('/delete', 'UsersController@deleteUser')->name('user.delete');
+
         Route::post('follow', 'UserFollowController@store')->name('follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
     });
 
+    
     Route::get('user/detail/{id}', 'UsersController@showDetail')->name('detail.user');
     Route::get('search', 'UsersController@search')->name('users.search');
     Route::resource('songs', 'SongsController', ['only' => ['create', 'store', 'destroy']]);

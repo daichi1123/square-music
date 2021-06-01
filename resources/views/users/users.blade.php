@@ -18,7 +18,10 @@
         @endif
         <div class="col-lg-4 mb-5">
             <div class="movie text-left d-inline-block">
-                <b>{{ $user->first_name }}</b> <span>from</span> <b>{{ $user->country->country_name }}</b>
+                <b>{{ $user->first_name }}</b>
+                <span>from</span>
+                <b>{{ $user->country->country_name }}</b>
+            
                 <div>
                 @if($song)
                     <div class="text-right">

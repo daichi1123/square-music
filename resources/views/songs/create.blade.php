@@ -21,9 +21,16 @@
         <h2 class="mt-5 text-success">Spotifyプレイリスト登録</h2>
         {!! Form::open(['route'=>'songs.store']) !!}
             <div class="form-group mt-5">
-
-                <br>例）PlaylistのURLが <span>https://open.spotify.com/playlist/2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ なら</span>
-                <div> &emsp; "<span class="text-success">playlist/</span>"の直後の "<span class="text-success">2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ</span>" を入力</div>
+                <br>例）PlaylistのURLが 
+                <span>https://open.spotify.com/playlist/2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ なら</span>
+                <div> 
+                    &emsp;
+                    <span>"</span>
+                    <span class="text-success">playlist/</span>
+                    <span>"の直後の"</span>
+                    <span class="text-success">2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ</span>
+                    <span>"を入力</span>
+                </div>
                 <div class="text-danger mt-1 mb-1">＊プレイリスト以外の登録はできません</div>
                 {!! Form::text('url',null,['class'=>'form-control', 'placeholder'=>'2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ (SpotifyURL入力欄)', 'autofocus']) !!}
                 
@@ -37,7 +44,7 @@
             </div>
         {!! Form::close() !!}
         <div class="text-center mt-3">
-            <a href="https://open.spotify.com/" class="text-center d-inline-block">
+            <a class="text-center d-inline-block" href="https://open.spotify.com/">
                 SpotifyでURLを取得する
             </a>
         </div>
