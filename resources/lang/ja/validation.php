@@ -169,7 +169,7 @@ return [
         'password_confirmation'=>'パスワード',
         'country_id'=>'国名',
         'age_id'=>'年齢',
-        'sex'=>'年齢',
+        'sex'=>'性別',
     ],
 
 ];

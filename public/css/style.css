@@ -7,6 +7,7 @@
     outline: none;
     padding: 0;
     appearance: none;
+    outline: none;
 }
 .fav {
     color: #262626;
@@ -14,7 +15,7 @@
 .unfav {
     color: #ff3366;
 }
-.fa-heart{
+.fa-heart {
     font-size: 32px;
 }
 .fav-button {
@@ -25,6 +26,7 @@
     outline: none;
     padding-top: 0px;
     appearance: none;
+    outline: none;
 }
 
 .chat-container {
@@ -74,4 +76,4 @@
     margin-left: 5px;
     color: #a0a0a0;
 }
-  /*# sourceMappingURL=style.css */
+/*# sourceMappingURL=style.css */

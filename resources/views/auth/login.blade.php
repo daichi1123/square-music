@@ -8,36 +8,48 @@
         </div>
     </div>
 
-    <div class="text-center">
-        <h3 class="login_title text-left d-inline-block mt-5">ログイン</h3>
-    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 py-5">
+                <div class="card">
+                    <div class="card-header">ログイン</div>
+    
+                    <div class="card-body">
+                        <form action="{{ route('login.post') }}" method="POST">
+                        @csrf
 
-    <div class="row mt-5 mb-5">
-        <div class="col-sm-6 offset-sm-3">
-            <form action="{{ route('login.post') }}" method="post">
-            @csrf
-                <div class="form-group">
-                    <label name="email">メールアドレス：</label>
-                    <b style="color:red">test1@example.com</b><br>
-                    <input type="text" name="email" value="{{ old('email') }}" class="form-control" autofocus>
-                </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="email">メールアドレス</label>
+                            <div class="col-md-6">
+                                <input class="form-control" name="email" type="email" value="test1@example.com" placeholder="test1@example.com" autocomplete="email">
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <label name="password">パスワード：</label>
-                    <b style="color:red">example1</b><br>
-                    <input type="text" name="password" class="form-control">
-                </div>
+                        <div class="form-group row">
+                            <label class="col-md-4 col-form-label text-md-right" for="password">パスワード</label>
 
-                <div class="d-flex justify-content-around py-5 col-sm-8 col-auto container">
-                    <input type="submit" class='btn btn btn-primary mt-2' value="ログイン">
+                            <div class="col-md-6">
+                                <input class="form-control js-password" name="password" type="password" value="example1" placeholder="example1" autocomplete="password">
+                            </div>
+                        </div>
+                        <div>
+                            <input class="offset-sm-4" id="js-passcheck" type="checkbox" />
+                            <label for="js-password">パスワードを表示する</label>
+                        </div>
+                        <div class="d-flex justify-content-around col-sm-8 col-auto container">
+                            <input class="btn btn btn-primary mt-3" type="submit" value="ログイン">
+                        </div>
+                        </form>
+                        <div class="text-center pt-3">
+                            <a href="#">パスワードを忘れた</a>
+                        </div>
+                        <hr>
+                        <div class="text-center pt-1">
+                            <a class="btn btn-primary" type="button" href="/signup">新規登録がまだの方</a>
+                        </div>
+                    </div>
                 </div>
-            </form>
-            <div class="text-center">
-                <a href="{{ route('signup') }}" class="text-center d-inline-block">
-                    ユーザ登録していない
-                </a>
             </div>
         </div>
     </div>
-    
 @endsection

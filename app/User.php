@@ -5,10 +5,13 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
     use Notifiable;
+    use SoftDeletes;
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -44,6 +47,40 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    protected function updateUserInfo($user)
+    {
+        return update([
+            'id' => $user['id'],
+            'last_name' => $user['last_name'],
+            'middle_name' => $user['middle_name'],
+            'first_name' => $user['first_name'],
+            'email' => $user['email'],
+            'age_id' => $user['age_id'],
+            'password' => bcrypt($user['password']),
+        ]);
+    }
+
+    /**
+     * ユーザ情報を更新する際のヴァリデーション
+     *
+     * @param  array  $data
+     * @return \Illuminate\Contracts\Validation\Validator
+     */
+    public function rules()
+    {
+        $age = new Age();
+        // 値をデータベースのage_id登録数の最大値までにする
+        $maxAgeId = $age->max('id');
+
+        return [
+            'last_name' => ['required', 'string', 'max:24'],
+            'middle_name' => ['string', 'nullable', 'max:24'],
+            'first_name' => ['required', 'string', 'max:24'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
+            'age_id' => ['required', 'integer', 'max:'. $maxAgeId],
+        ];
+    }
+
     public function country()
     {
         return $this->belongsTo(Country::class);
@@ -62,6 +99,11 @@ class User extends Authenticatable
     public function favorites()
     {
         return $this->belongsToMany(Song::class, 'favorites', 'user_id', 'song_id')->withTimestamps();
+    }
+
+    public function favorites_user()
+    {
+        return $this->belongsToMany(Song::class, 'favorites', 'song_id', 'user_id')->withTimestamps();
     }
 
     public function followings()
