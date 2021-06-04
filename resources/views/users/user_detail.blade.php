@@ -2,14 +2,6 @@
 
 @section('content')
 
-@if($user === null)
-    <div class="text-center">
-        <h1 class="mt-5 col-lg-12">ユーザが見つかりません</h1>
-        <h3 class="mt-5 col-lg-12"></h3>
-
-        <a class="btn btn-primary mt-5" href="/products">ホームへ</a>
-    </div>
-@else
     <div class="container">
         <div class="row text-center">
             <div class="col-lg-12 mt-2">
@@ -39,12 +31,6 @@
                 
             </div>
         </div>
-
-        @include('hometalk', compact('reviews'))
-
     </div>
-
-    
-@endif
 
 @endsection

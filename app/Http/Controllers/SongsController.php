@@ -46,6 +46,7 @@ class SongsController extends Controller
     {
         $this->validate($request, $this->song->rules());
         $newSongInfo = $request;
+        $newSongInfo->session()->regenerateToken();
         // デッドロック発生時のトランザクション再試行回数
         $retryTimes = 5;
         DB::transaction(function () use($newSongInfo, $retryTimes) {
@@ -70,7 +71,7 @@ class SongsController extends Controller
         // デッドロック発生時のトランザクション再試行回数
         $retryTimes = 5;
         if(\Auth::id() == $deletingSong->user_id) {
-            DB::transaction(function () use($deletingSong, $retryTimes) {
+            DB::transaction(function () use($deletingSong) {
                 $deletingSong->delete();
             }, $retryTimes);   
         }

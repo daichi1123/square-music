@@ -31,8 +31,8 @@
                 <input class="col-sm-6 js-password" type="password" placeholder="(確認用)exampledata" name="password_confirmation" />
             </div>
             <div>
-                <label class="offset-4" for="js-password">パスワードを表示する</label>
-                <input id="js-passcheck" type="checkbox" />
+                <input class="offset-sm-4" id="js-passcheck" type="checkbox" />
+                <label for="js-password">パスワードを表示する</label>
             </div>
             <div class="form-group row">
                 <label class="country_id col-sm-4 col-form-label text-sm-right">国名</label>

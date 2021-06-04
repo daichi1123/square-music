@@ -17,7 +17,6 @@
                     <div class="card-body">
                         <form action="{{ route('login.post') }}" method="POST">
                         @csrf
-
                         <div class="form-group row">
                             <label class="col-md-4 col-form-label text-md-right" for="email">メールアドレス</label>
                             <div class="col-md-6">
@@ -37,15 +36,20 @@
                             <label for="js-password">パスワードを表示する</label>
                         </div>
                         <div class="d-flex justify-content-around col-sm-8 col-auto container">
-                            <input class="btn btn btn-primary mt-3" type="submit" value="ログイン">
+                            <input class="btn btn btn-primary mt-2" type="submit" value="ログイン">
                         </div>
                         </form>
-                        <div class="text-center pt-3">
+                        <div class="text-center pt-2">
                             <a href="#">パスワードを忘れた</a>
                         </div>
                         <hr>
-                        <div class="text-center pt-1">
-                            <a class="btn btn-primary" type="button" href="/signup">新規登録がまだの方</a>
+                        <div class="text-center">
+                            <p class="mt-1">
+                                <font size="2">
+                                    <strong>初めての方は</strong>
+                                </font>
+                            </p>
+                            <a class="btn btn-outline-secondary" type="button" href="/signup">新規登録をする</a>
                         </div>
                     </div>
                 </div>

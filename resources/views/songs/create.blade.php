@@ -19,7 +19,7 @@
 
     <div class="container">
         <h2 class="mt-5 text-success">Spotifyプレイリスト登録</h2>
-        {!! Form::open(['route'=>'songs.store']) !!}
+        {!! Form::open(['route'=>'songs.store', 'class' => 'store-playlist']) !!}
             <div class="form-group mt-5">
                 <br>例）PlaylistのURLが 
                 <span>https://open.spotify.com/playlist/2LS1HBjVWGLjlYwoizbncs?si=dIo5UbFCTVKgutdeKPqaTQ なら</span>
@@ -38,7 +38,7 @@
                 {!! Form::text('comment',null,['class'=>'form-control', 'placeholder'=>'このプレイリストについてのコメント']) !!}
                 
                 <div class="d-flex justify-content-around col-sm-8 col-auto container">
-                    {!! Form::submit('登録', ['class'=> 'btn btn-lg btn-primary mt-5']) !!}
+                    {!! Form::submit('登録', ['class'=> 'btn btn-lg btn-primary mt-5 register']) !!}
                 </div>
 
             </div>
@@ -53,12 +53,5 @@
         <h2 class="mt-3">Your Playlists</h2>
         @include('songs.songs')
 
-        <script>
-        @if (session('flash_message_delete'))
-            $(function () {
-                toastr.danger('{{ session('flash_message_delete') }}');
-            });
-        @endif
-        </script>
 
 @endsection

@@ -27,10 +27,45 @@ $(function() {
   });
 });
 
-// ajaxのチャットの処理内容
-$(function() {
-  get_data();
+$(function ()
+{
+  $('.toggle_wish').on('click', function ()
+  {
+    song_id = $(this).attr("song_id");
+    fav_song = $(this).attr("fav_song");
+    click_button = $(this);
+
+    $ajax({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      },
+      //route.phpで指定したコントローラーのメソッドURLを指定
+      url: '/fav_product',
+      //GETかPOSTメソットを選択
+      type: 'POST',
+      //コントローラーに送るに名称をつけてデータを指定
+      data: { 'song_id': song_id, 'fav_song': fav_song, },
+    })
+    .done(function (data)
+    {
+      if (data == 0)
+      {
+        click_button.attr("fav_song", "0");
+        click_button.children().attr("class", "far far-heart");
+      }
+    })
+    .fail(function (data)
+    {
+      alert('いいね処理失敗');
+      alert(JSON.stringify(data));
+    });
+  });
 });
+
+// ajaxのチャットの処理内容
+// $(function() {
+//   get_data();
+// });
 
 // function get_data() {
 //   $.ajax({
