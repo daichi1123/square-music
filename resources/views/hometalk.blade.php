@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+@section('content')
+
 <div class="chat-container row justify-content-center">
     <div class="chat-area">
         <div class="card">
@@ -23,4 +27,5 @@
 
 @section('js')
 <script src="{{ asset('js/main.js') }}"></script>
+
 @endsection

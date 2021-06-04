@@ -6,46 +6,53 @@
 
 <h1 class="mt-4">Users</h1>
 
-<div class="movies row mt-5 text-center">
+<div class="row mt-5">
     @foreach ($users as $key => $user)
         @php
             $song=$user->songs->last();
         @endphp
 
         @if($loop->iteration % 3 == 1 && $loop->iteration != 1)
-            </div>
-            <div class="row text-center mt-3">
+</div>
+<div class="row py-3">
         @endif
-        <div class="col-lg-4 mb-5">
-            <div class="movie text-left d-inline-block">
-                <b>{{ $user->first_name }}</b>
-                <span>from</span>
-                <b>{{ $user->country->country_name }}</b>
-            
-                <div>
+        <div class="col-lg-4">
+            <div class="card" style="display: flow-root;">
+                <div class="card-header">
+                    <b>{{ $user->first_name }}</b>
+                    <span>from</span>
+                    <b>{{ $user->country->country_name }}</b>
+                    @if($song)
+                    <span class="badge badge-pill badge-success">いいね {{ $song->favorite_users->count() }}</span>
+                    @else
+                    <span class="badge badge-pill badge-danger">未登録</span>
+                    @endif
+                </div>
+                <div class="text-center">
                 @if($song)
-                    <div class="text-right">
-                        <span class="badge badge-pill badge-success">いいね {{ $song->favorite_users->count() }}</span>
-                    </div>
-                    <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class="card-img-top" src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 @else
-                    <div class="text-right">
-                        <span class="badge badge-pill badge-danger">未登録</span>
-                    </div>
-                    <iframe src="https://open.spotify.com/embed/playlist/6UeSakyzhiEt4NB3UAd6NQ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                <iframe class="card-img-top" src="https://open.spotify.com/embed/playlist/6UeSakyzhiEt4NB3UAd6NQ" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
                 @endif
                 </div>
-                <div style='display: inline'>
-                @include('favorite.favorite_button', ['song'=>$song])
-                @include('follow.follow_button', ['user'=>$user])
+                <div>
+                @if (Auth::user())
+                    @if($song)
+                        @include('favorite.favorite_button', ['song'=>$song])
+                    @else
+                        <span class="pl-1"></span>
+                    @endif
+                    <a class="" href="#" style="color:black; font-size: 32px;">
+                        <i class="far fa-comment fa-flip-horizontal"></i>
+                    </a>
+                    @include('follow.follow_button', ['user'=>$user])
+                @endif
                 </div>
-                <p>
                 @if(isset($song->comment))
-                    {{ $song->comment }}
+                    <div class="card-text py-1">&nbsp;{{ $song->comment }}</div>
                 @else
-                    <span>※コメント登録されてません</span>
+                    <div class="card-text py-1">※コメント登録されてません</div>
                 @endif
-                </p>
             </div>
         </div>
     @endforeach

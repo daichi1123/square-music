@@ -62,12 +62,16 @@
                 </div>
             </div>
             <div class="d-flex justify-content-around pb-4 col-sm-8 col-auto container">
-                <input class="btn btn-primary" type="submit" value="変更" />
+                <input class="btn btn-primary" type="submit" value="ユーザ情報を更新する" />
             </div>
         </form>
-        <div class="text-center pb-3">
-            <a href="#">パスワードを変更する</a>
-        </div>
+            <div class="text-center">
+                <a href="#">パスワードを変更する</a>
+            </div>
+            <hr>
+            <div class="text-center pb-3">
+                <a class="btn btn-outline-danger" type="button" href="{{ route('user.deletePage', ['id' => $user->id]) }}">アカウント削除する</a>
+            </div>
         </div>
     </div>
 </div>

@@ -5,9 +5,8 @@
     border: none;
     cursor: pointer;
     outline: none;
-    padding: 0;
+    padding: 1px, 6px;
     appearance: none;
-    outline: none;
 }
 .fav {
     color: #262626;
@@ -26,7 +25,6 @@
     outline: none;
     padding-top: 0px;
     appearance: none;
-    outline: none;
 }
 
 .chat-container {

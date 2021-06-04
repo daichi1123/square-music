@@ -10,3 +10,9 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
+resources/js/components/Example.jsx
+resources/js/components/fav.jsx
+resources/js/app.js
+resources/js/app.js
+resources/views/favorite/fav_button.blade.php
+resources/views/favcom.blade.php
