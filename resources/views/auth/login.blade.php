@@ -40,7 +40,11 @@
                         </div>
                         </form>
                         <div class="text-center pt-2">
-                            <a href="#">パスワードを忘れた</a>
+                        @if (Route::has('password.request'))
+                            <a class="btn btn-link" href="{{ route('password.request') }}" style='outline: none;'>
+                                {{ __('パスワードを忘れた') }}
+                            </a>
+                        @endif
                         </div>
                         <hr>
                         <div class="text-center">
