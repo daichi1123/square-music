@@ -6,7 +6,7 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title>Square Music</title>
+        <title>{{ config('app.name', 'Square Music') }}</title>
 
         <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script src="https://ajaxzip3.github.io/ajaxzip3.js"></script>
