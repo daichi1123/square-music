@@ -29,7 +29,7 @@ class ReviewController extends Controller
     {
         $user = Auth::user();
         $reviews = Review::get();
-        return view('hometalk', compact('reviews','user'));
+        return view('hometalk', compact('reviews', 'user'));
     }
 
     public function add(Request $request)
