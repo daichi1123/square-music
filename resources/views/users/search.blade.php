@@ -49,24 +49,28 @@
         </tr>
     </thead>
     @foreach($users as $user)
-    <tbody class='h4'>
-        <tr>
-            <td>{{ $user->first_name }}</td>
-            <td>
-                @if(isset($songs))
-                    {{ $user->songs->count() }}
-                @else
-                    0
-                @endif
-            </td>
-            <td>{{ $user->country->country_name }}</td>
-            <td>{{ $user->age->age_name }}</td>
-            <td>{{ $user->sex }}</td>
-            <td name="name">
-                <a class="btn btn-primary" href="{{ action('UsersController@showDetail', $user->id) }}">ユーザ詳細画面</a>
-            </td>
-        </tr>
-    </tbody>
+        @if(Auth::check())
+            @if (Auth::id() != $user->id)
+            <tbody class='h4'>
+                <tr>
+                    <td>{{ $user->first_name }}</td>
+                    <td>
+                        @if(isset($songs))
+                            {{ $user->songs->count() }}
+                        @else
+                            0
+                        @endif
+                    </td>
+                    <td>{{ $user->country->country_name }}</td>
+                    <td>{{ $user->age->age_name }}</td>
+                    <td>{{ $user->sex }}</td>
+                    <td name="name">
+                        <a class="btn btn-primary" href="{{ action('UsersController@showDetail', $user->id) }}">ユーザ詳細画面</a>
+                    </td>
+                </tr>
+            </tbody>
+            @endif
+        @endif
     @endforeach
     </table>
     <div class="row justify-content-center">
@@ -74,9 +78,9 @@
     </div>
 
     @if( $users->count() <= 0 )
-        <div class="row justify-content-center">
-            <h2>検索結果がありませんでした</h2>
-        </div>
+    <div class="row justify-content-center">
+        <h2 class="py-5">検索結果がありませんでした</h2>
+    </div>
     @endif
 </div>
 

@@ -9,18 +9,18 @@
             @csrf
             <div class="form-group mt-5">
                 <label class="col-sm-4 text-sm-center pt-2">名前</label>
-                <input class="col-sm-2" type="text" name="first_name" value="{{ old('first_name') }}" placeholder="(名)太郎" autofocus />
-                <input class="col-sm-2" type="text" name="middle_name" value="{{ old('middle_name') }}" placeholder="(未記入OK)ミドルネーム" />
-                <input class="col-sm-2" name="last_name" value="{{ old('last_name') }}" placeholder="(姓)山田" />
+                <input class="col-sm-2" name="first_name" type="text" value="{{ old('first_name') }}" placeholder="(名)太郎" autofocus />
+                <input class="col-sm-2" name="middle_name" type="text" value="{{ old('middle_name') }}" placeholder="(未記入OK)ミドルネーム" />
+                <input class="col-sm-2" name="last_name" type="text" value="{{ old('last_name') }}" placeholder="(姓)山田" />
             </div>
     
             <div class="form-group">
                 <label class="col-sm-4 col-form-label text-sm-center">メールアドレス</label>
-                <input class="col-sm-6" name="email" type="email" placeholder="test1@example.com" autocomplete="email" />
+                <input class="col-sm-6" name="email" type="email" value="{{ old('email') }}" placeholder="test1@example.com" autocomplete="email" />
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-form-label text-sm-center">メールアドレス確認</label>
-                <input class="col-sm-6" name="email_confirmation" type="text" placeholder="test1@example.com" />
+                <input class="col-sm-6" name="email_confirmation" type="email" value="{{ old('email_confirmation') }}" placeholder="test1@example.com" />
             </div>
             <div class="form-group">
                 <label class="col-sm-4 col-form-label text-sm-center">パスワード</label>
@@ -66,6 +66,10 @@
                         <label class="form-check-label" for="inlineRadio03">その他</label>
                     </div>
                 </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-form-label text-sm-center">Instagram&nbsp;ID</label>
+                <input class="col-sm-6" name="insta_id" type="text" placeholder="InstagramのID記述してください" />
             </div>
             <div class="d-flex justify-content-around pb-4 col-sm-8 col-auto container">
                 <input class="btn btn-primary" type="submit" value="新規登録">

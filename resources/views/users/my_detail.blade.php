@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row text-center">
         <div class="col-lg-12 mt-2">
-            <h1>ユーザー</h1>
+            <h1>マイページ</h1>
         </div>
         <div class="col-lg-12 mt-4 mb-3">
             <h2 class="text-left">ユーザ名：</h2>

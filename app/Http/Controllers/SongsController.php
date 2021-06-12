@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-use App\User; 
-use App\Song; 
+use App\Song;
 
 class SongsController extends Controller
 {
@@ -27,12 +26,12 @@ class SongsController extends Controller
     {
         $user = \Auth::user();
         $songs = $user->songs()->orderBy('id', 'desc')->paginate(9);
-        
+
         $data = [
             'user' => $user,
             'songs' => $songs,
         ];
-        
+
         return view('songs.create', $data);
     }
 
@@ -49,7 +48,7 @@ class SongsController extends Controller
         $newSongInfo->session()->regenerateToken();
         // デッドロック発生時のトランザクション再試行回数
         $retryTimes = 5;
-        DB::transaction(function () use($newSongInfo, $retryTimes) {
+        DB::transaction(function () use ($newSongInfo) {
             $newSongInfo->user()->songs()->create([
                 'url' => $newSongInfo->url,
                 'comment' => $newSongInfo->comment,
@@ -70,10 +69,10 @@ class SongsController extends Controller
         $deletingSong = Song::findOrFail($id);
         // デッドロック発生時のトランザクション再試行回数
         $retryTimes = 5;
-        if(\Auth::id() == $deletingSong->user_id) {
-            DB::transaction(function () use($deletingSong) {
+        if (\Auth::id() == $deletingSong->user_id) {
+            DB::transaction(function () use ($deletingSong) {
                 $deletingSong->delete();
-            }, $retryTimes);   
+            }, $retryTimes);
         }
 
         return back()->with('flash_message_delete', 'プレイリスト削除に成功しました。');

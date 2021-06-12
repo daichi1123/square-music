@@ -12,6 +12,11 @@
         {{ session('flash_message_delete') }}
     </div>
 @endif
+@if (session('flash_message_insta'))
+    <div class="alert alert-success">
+        {{ $user->insta_id }}{{ session('flash_message_insta') }}
+    </div>
+@endif
 
     <div class="text-right">
         {{ Auth::user()->first_name }}
@@ -52,6 +57,20 @@
     </div>
         <h2 class="mt-3">Your Playlists</h2>
         @include('songs.songs')
+
+    <div class="container">
+        <h3 class="mt-5">Instagram&nbsp;ID登録・変更</h3>
+        <div class="form-group mt-3">
+            <div class="col-6">
+                {!! Form::open(['route' => ['register.insta', $user->id],'method'=>'put']) !!}
+                    <div class="form-group">
+                    {!! Form::text('insta_id', $user->insta_id , ['class' => 'form-control input-lg', 'placeholder' => 'InstagramのIDを記述ください' ]) !!}
+                    </div>
+                    {!! Form::submit('更新', ['class' => 'button btn btn-lg btn-primary mt-2']) !!}
+                {!! Form::close() !!}
+            </div>
+        </div>
+    </div>
 
 
 @endsection
