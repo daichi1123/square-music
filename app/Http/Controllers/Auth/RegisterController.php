@@ -67,6 +67,7 @@ class RegisterController extends Controller
             'country_id' => ['required', 'integer', 'max:'. $maxCountryId],
             'sex' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'insta_id' => ['nullable', 'string', 'max:50'],
         ]);
     }
 
@@ -86,6 +87,7 @@ class RegisterController extends Controller
             'country_id' => $data['country_id'],
             'age_id' => $data['age_id'],
             'sex' => $data['sex'],
+            'insta_id' => $data['insta_id'],
             'password' => bcrypt($data['password']),
         ]);
     }

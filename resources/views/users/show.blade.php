@@ -5,7 +5,7 @@
 <div class="container">
     <div class="col-lg-12 text-center mt-2">
         <h1>
-            ユーザー
+            マイページ
         </h1>
     </div>
 

@@ -30,7 +30,7 @@
                 </div>
                 <div class="form-group row pt-3">
                     <label class="country_id col-sm-5 col-form-label text-sm-right">国名</label>
-                    <select class="form-control col-sm-4"> name="country_id">
+                    <select class="form-control col-sm-4" name="country_id">
                     @foreach(config('country_list') as $countryId => $countryName)
                         <option value="{{ $countryId }}" @if(old('country_id', $registeredCountryName) == $countryName) selected @endif>{{$countryName}}</option>
                     @endforeach
@@ -60,6 +60,10 @@
                             <label class="form-check-label" for="inlineRadio03">その他</label>
                         </div>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 col-form-label text-sm-center">Instagram&nbsp;ID</label>
+                    <input class="col-sm-6" name="insta_id" type="text" value="{{ $user->insta_id }}" placeholder="InstagramのID記述してください" />
                 </div>
                 <div class="d-flex justify-content-around pb-3 col-sm-8 col-auto container">
                     <input class="btn btn-primary" type="submit" value="ユーザ情報を更新する" />

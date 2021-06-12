@@ -161,15 +161,16 @@ return [
     */
 
     'attributes' => [
-        'last_name'=>'苗字',
-        'first_name'=>'名前',
-        'email'=>'メールアドレス',
-        'email_confirmation'=>'メールアドレス',
-        'password'=>'パスワード',
-        'password_confirmation'=>'パスワード',
-        'country_id'=>'国名',
-        'age_id'=>'年齢',
-        'sex'=>'性別',
+        'last_name' => '苗字',
+        'first_name' => '名前',
+        'email' => 'メールアドレス',
+        'email_confirmation' => 'メールアドレス',
+        'password' => 'パスワード',
+        'password_confirmation' => 'パスワード',
+        'country_id' => '国名',
+        'age_id' => '年齢',
+        'sex' => '性別',
+        'insta_id' => 'Instagram ID',
     ],
 
 ];

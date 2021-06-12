@@ -41,6 +41,8 @@ Route::group(['middleware' => 'auth'], function () {
     });
     
     Route::get('/mypage', 'UsersController@mypage')->name('mypage');
+    // instaIDの登録
+    Route::put('/register/{id}', 'UsersController@updateInstaId')->name('register.insta');
     
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::get('/edit', 'UsersController@editUser')->name('user.edit');

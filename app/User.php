@@ -7,6 +7,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Notifications\ResetPassword;
+use App\Rules\HalfWidth;
 
 class User extends Authenticatable
 {
@@ -28,6 +29,7 @@ class User extends Authenticatable
         'country_id',
         'age_id',
         'sex',
+        'insta_id',
     ];
 
     /**
@@ -40,11 +42,11 @@ class User extends Authenticatable
     ];
 
     /**
-    * パスワードリセット通知の送信
-    *
-    * @param  string  $token
-    * @return void
-    */
+     * パスワードリセット通知の送信
+     *
+     * @param  string  $token
+     * @return void
+     */
     public function sendPasswordResetNotification($token)
     {
         $this->notify(new ResetPassword($token));
@@ -59,19 +61,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    protected function updateUserInfo($user)
-    {
-        return update([
-            'id' => $user['id'],
-            'last_name' => $user['last_name'],
-            'middle_name' => $user['middle_name'],
-            'first_name' => $user['first_name'],
-            'email' => $user['email'],
-            'age_id' => $user['age_id'],
-            'password' => bcrypt($user['password']),
-        ]);
-    }
-
     /**
      * ユーザ情報を更新する際のヴァリデーション
      *
@@ -80,6 +69,10 @@ class User extends Authenticatable
      */
     public function rules()
     {
+        $country = new Country();
+        // 値をデータベースのcountry_id登録数の最大値までにする
+        $maxCountryId = $country->max('id');
+
         $age = new Age();
         // 値をデータベースのage_id登録数の最大値までにする
         $maxAgeId = $age->max('id');
@@ -89,7 +82,9 @@ class User extends Authenticatable
             'middle_name' => ['string', 'nullable', 'max:24'],
             'first_name' => ['required', 'string', 'max:24'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
-            'age_id' => ['required', 'integer', 'max:'. $maxAgeId],
+            'country_id' => ['required', 'integer', 'max:' . $maxCountryId],
+            'age_id' => ['required', 'integer', 'max:' . $maxAgeId],
+            'insta_id' => ['nullable', 'string', new HalfWidth, 'max:50']
         ];
     }
 
@@ -137,17 +132,17 @@ class User extends Authenticatable
     {
         $existing = $this->is_following($userId);
         $myself = $this->id == $userId;
-    
+
         if (!$existing && !$myself) {
             $this->followings()->attach($userId);
         }
     }
-    
+
     public function unfollow($userId)
     {
         $existing = $this->is_following($userId);
         $myself = $this->id == $userId;
-    
+
         if ($existing && !$myself) {
             $this->followings()->detach($userId);
         }
@@ -157,9 +152,9 @@ class User extends Authenticatable
     {
         $exist = $this->is_favorite($songId);
 
-        if($exist){
+        if ($exist) {
             return false;
-        }else{
+        } else {
             $this->favorites()->attach($songId);
             return true;
         }
@@ -169,16 +164,16 @@ class User extends Authenticatable
     {
         $exist = $this->is_favorite($songId);
 
-        if($exist){
+        if ($exist) {
             $this->favorites()->detach($songId);
             return true;
-        }else{
+        } else {
             return false;
         }
     }
 
     public function is_favorite($songId)
     {
-        return $this->favorites()->where('song_id',$songId)->exists();
+        return $this->favorites()->where('song_id', $songId)->exists();
     }
-} 
+}
