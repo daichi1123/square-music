@@ -35,15 +35,15 @@ Route::group(['prefix' => 'users/{id}'], function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 
-    Route::group(['prefix'=>'songs/{id}'],function(){
-        Route::post('favorite','FavoriteController@store')->name('favorites.favorite');
-        Route::delete('unfavorite','FavoriteController@destroy')->name('favorites.unfavorite');
+    Route::group(['prefix' => 'songs/{id}'], function () {
+        Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
+        Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
     });
-    
+
     Route::get('/mypage', 'UsersController@mypage')->name('mypage');
     // instaIDの登録
     Route::put('/register/{id}', 'UsersController@updateInstaId')->name('register.insta');
-    
+
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::get('/edit', 'UsersController@editUser')->name('user.edit');
         Route::put('/update', 'UsersController@updateUser')->name('user.update');
@@ -54,12 +54,13 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
     });
 
-    
+
     Route::get('user/detail/{id}', 'UsersController@showDetail')->name('detail.user');
     Route::get('search', 'UsersController@search')->name('users.search');
     Route::resource('songs', 'SongsController', ['only' => ['create', 'store', 'destroy']]);
 
-    // Route::get('/chat', 'ReviewController@index')->name('home.chat');
-    // Route::post('/add', 'ReviewController@add')->name('chat.add');
-    // Route::get('/result/ajax', 'ReviewController@getData');
+    // Chat機能
+    Route::get('/chat', 'ReviewController@index')->name('home.chat');
+    Route::post('/add', 'ReviewController@add')->name('chat.add');
+    Route::get('/result/ajax', 'ReviewController@getData');
 });

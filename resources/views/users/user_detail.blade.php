@@ -41,7 +41,7 @@
         <span class="pl-1"></span>
         @endif
 
-        <a class="chat_btn" href="#">
+        <a class="chat_btn" href="{{ route('home.chat') }}">
             <i class="far fa-comment fa-flip-horizontal"></i>&nbsp;<span>チャットへ</span>
         </a>
     </div>
@@ -75,7 +75,8 @@
                 @else
                 <iframe
                     class="card-img-top"
-                    src="https://open.spotify.com/embed/playlist/6UeSakyzhiEt4NB3UAd6NQ"width="300"
+                    src="https://open.spotify.com/embed/playlist/6UeSakyzhiEt4NB3UAd6NQ"
+                    width="300"
                     height="380"
                     frameborder="0"
                     allowtransparency="true"

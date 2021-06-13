@@ -19,7 +19,15 @@
         <div class="col-lg-4">
             <div class="card" style="display: flow-root;">
                 <div class="card-header">
-                    <b>{{ $user->first_name }}</b>
+                    <b>
+                    @if(Auth::check())
+                        <a href="{{ route('detail.user', $user->id) }}">
+                        {{ $user->first_name }}
+                        </a>
+                    @else
+                        {{ $user->first_name }}
+                    @endif
+                    </b>
                     <span>from</span>
                     <b>{{ $user->country->country_name }}</b>
                     @if($song)
@@ -57,10 +65,15 @@
                 @if (Auth::user())
                     @if($song)
                         @include('favorite.favorite_button', ['song'=>$song])
+                        @if(Auth::check())
+                            @if (Auth::id() == $user->id)
+                            <span class="pl-1"></span>
+                            @endif
+                        @endif
                     @else
                         <span class="pl-1"></span>
                     @endif
-                    <a class="" href="#" style="color:black; font-size: 32px;">
+                    <a href="{{ route('home.chat') }}" style="color:black; font-size: 32px;">
                         <i class="far fa-comment fa-flip-horizontal"></i>
                     </a>
                     @if($user->insta_id)
