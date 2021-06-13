@@ -21,13 +21,11 @@
                 <div class="card-header">
                     <b>
                     @if(Auth::check())
-                        @if (Auth::id() != $user->id)
                         <a href="{{ route('detail.user', $user->id) }}">
-                            {{ $user->first_name }}
-                        </a>
-                        @else
                         {{ $user->first_name }}
-                        @endif
+                        </a>
+                    @else
+                        {{ $user->first_name }}
                     @endif
                     </b>
                     <span>from</span>
