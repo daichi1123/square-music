@@ -173,5 +173,4 @@ return [
         'insta_id' => 'Instagram ID',
         'review' => 'コメント',
     ],
-
 ];
