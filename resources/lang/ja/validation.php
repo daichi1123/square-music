@@ -81,7 +81,7 @@ return [
     'max'                  => [
         'numeric' => ':attribute は :max 以下のみ有効です',
         'file'    => ':attribute は :max KB以下のファイルのみ有効です',
-        'string'  => ':attribute は :max 文字以下までの記述お願いします',
+        'string'  => ':attribute は :max 文字以下までの記述をお願いします',
         'array'   => ':attribute は :max 個以下のみ有効です',
     ],
     'mimes'                => ':attribute は :values タイプのみ有効です',
@@ -171,6 +171,7 @@ return [
         'age_id' => '年齢',
         'sex' => '性別',
         'insta_id' => 'Instagram ID',
+        'review' => 'コメント',
     ],
 
 ];

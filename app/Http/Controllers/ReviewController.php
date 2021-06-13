@@ -17,6 +17,7 @@ class ReviewController extends Controller
      */
     public function __construct()
     {
+        $this->review = new Review;
         $this->middleware('auth');
     }
 
@@ -35,6 +36,7 @@ class ReviewController extends Controller
     public function add(Request $request)
     {
         $user = Auth::user();
+        $this->validate($request, $this->review->rules());
         $review = $request->input('review');
         Review::create([
             'login_id' => $user->id,
