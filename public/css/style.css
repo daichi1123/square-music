@@ -87,6 +87,12 @@
     padding-left: 5px;
 }
 
+/* 自己紹介のテキストエリアのレイアウト */
+.introduction {
+    vertical-align: top;
+    resize: none;
+}
+
 /* insta_idのレイアウト */
 .insta_btn2 {
     /*ボタンの下地*/

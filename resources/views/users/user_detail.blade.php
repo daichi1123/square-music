@@ -32,6 +32,20 @@
             年齢：{{ $user->age->age_name }}
         </h2>
     </div>
+    <div class="col-lg-12 my-3">
+        <div class="card text-center">
+            <div class="card-header">
+                <h4>
+                    <b>自己紹介</b>    
+                </h4>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">
+                    {{$user->self_introduction}}
+                </h4>
+            </div>
+        </div>
+    </div>
     <div class="col-6">
         @if($user->insta_id)
         <a class="insta_btn2" href="{{ 'https://www.instagram.com/'.$user->insta_id.'/' }}" target="_blank">

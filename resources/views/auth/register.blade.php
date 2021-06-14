@@ -50,7 +50,7 @@
                 @endforeach
                 </select>
             </div>
-            <div class="form-group row">
+            <div class="form-group row mb-4">
                 <label class="col-md-4 col-form-label text-md-right" for="radio01">性別</label>
                 <div class="col-md-6 mt-1">
                     <div class="form-check form-check-inline">
@@ -68,8 +68,12 @@
                 </div>
             </div>
             <div class="form-group">
-                <label class="col-sm-4 col-form-label text-sm-center">Instagram&nbsp;ID</label>
-                <input class="col-sm-6" name="insta_id" type="text" placeholder="InstagramのID記述してください" />
+                <label class="col-sm-4 col-form-label text-sm-center" for="self_introduction">自己紹介</label>
+                <textarea class="col-sm-6 introduction" name="self_introduction" placeholder="ここに自己紹介を入力してください" cols="50" rows="5"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 col-form-label text-sm-center" for="insta_id">Instagram&nbsp;ID</label>
+                <input class="col-sm-6" name="insta_id" type="text" placeholder="(未記入OK)InstagramのID記述してください" />
             </div>
             <div class="d-flex justify-content-around pb-4 col-sm-8 col-auto container">
                 <input class="btn btn-primary" type="submit" value="新規登録">

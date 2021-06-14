@@ -29,7 +29,8 @@ class User extends Authenticatable
         'country_id',
         'age_id',
         'sex',
-        'insta_id',
+        'self_introduction',
+        'insta_id'
     ];
 
     /**
@@ -84,6 +85,7 @@ class User extends Authenticatable
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
             'country_id' => ['required', 'integer', 'max:' . $maxCountryId],
             'age_id' => ['required', 'integer', 'max:' . $maxAgeId],
+            'self_introduction' => ['required', 'string', 'max:250'],
             'insta_id' => ['nullable', 'string', new HalfWidth, 'max:50']
         ];
     }
