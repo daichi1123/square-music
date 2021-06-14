@@ -200,7 +200,12 @@ class UsersController extends Controller
         return redirect()->route('user.index');
     }
 
-
+    /**
+     * フォローしている数・ユーザを表示する
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function followings($id)
     {
         $user = User::find($id);
@@ -216,6 +221,12 @@ class UsersController extends Controller
         return view('users.followings', $data);
     }
 
+    /**
+     * フォローされている数・ユーザを表示する
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function followers($id)
     {
         $user = User::find($id);
@@ -231,6 +242,13 @@ class UsersController extends Controller
         return view('users.followers', $data);
     }
 
+    /**
+     * ユーザの名前・国名でユーザを検索する
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Song $songs
+     * @return \Illuminate\Http\Response
+     */
     public function search(Request $request, Song $songs)
     {
         $query = User::query();
@@ -251,6 +269,13 @@ class UsersController extends Controller
         return view('users.search', compact('users', 'countries', 'songs'));
     }
 
+    /**
+     * 個別ユーザの詳細情報を表示する
+     * 
+     * @param  App\Song $song
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function showDetail(Song $song, $id)
     {
         $user = User::find($id);
