@@ -1,72 +1,174 @@
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# 初めに
 
-## About Laravel
+# アプリ概要
+## タイトル
+<strong>Square Music</strong>
+<br>
+<p>Square = 広場　　Music = 音楽</p>
+音楽をたくさんの人と共有していろんな国の音楽を知ることができ話の種になる場所を作りたかった。
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<br>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 開発の背景
+### 自分の「あればいい」を実現する！
+<p>私がアメリカに留学中に友達になった人たちに「日本の曲を教えて」と言われた時に教えたとしても相手は、<b>日本のキーボードを登録していない</b>・<b>他国の言葉</b>なので後でYouTubeなどで検索する頃には曲名を忘れるということが往々にありました。<br>その状況を解決したいという気持ちから今回のアプリを作成することを決意しました。</p>
+<p>日本に来ている留学生も何か話したいけど何を話したらいいかわからない人がいると思いますが、このアプリを使うことにより音楽という話す話題のたねを作成できる様になるので、その部分でもこのアプリは、役立つと考えています。</p>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<br>
 
-## Learning Laravel
+## 開発での使用言語
+・HTML CSS JavaScript PHP/Laravel MySQL Docker Vagrant
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<br>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 今後、機能追加に当たって使用したい言語
+・React TypeScript Python 
 
-## Laravel Sponsors
+<br>
+<br>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## ターゲット
+### ターゲット①（私が留学中に仲良くなった友達）
+留学中に友達になった人たちに「日本の曲を教えてよ」とよく言われていました。<br>たくさん教えたい曲があり絞ることができなく教えたとしてもその曲を聴くまでに他国の文字の曲なので聴くまでに忘れてしまうがしかし、今回作成したポートフォリオを使用するといつでも登録しておいたものを友達に聞いてくれることができる
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+### ターゲット②（留学生と仲良くなりたい日本人）
+<ul>
+    <li>英語を話せないけど文字ベースなら会話ができる人</li>
+    <li>話す話題がすぐに尽きてしまう人</li>
+</ul>
 
-## Contributing
+### ターゲット③（日本に来ている留学生）
+<ul>
+    <li>日本人と友達になりたいけど話す話題がない</li>
+</ul>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<br>
+<br>
 
-## Security Vulnerabilities
+# 使用イメージ
+### 新規登録、ログイン/ログアウト機能
+ログインは、テスト用にinputタグのvalueにログインメールアドレス・パスワードを記述しております。
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### メール送信によりパスワード変更
+Googleアカウントを使用して、メールを送信→パスワード変更を実現
 
-## License
+### ユーザ検索機能
+名前or国名でユーザを検索できる様にしております。
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### ユーザ情報削除
+ユーザ削除のための確認ページを作りましたが、一度クリックで削除では、誤操作により削除の可能性があるためモーダルウィンドウを使用
+
+### インスタグラムのID登録
+ID登録をするとインスタのアイコンをクリックすると登録したユーザのインスタページに飛ぶことが可能
+＊新規タブで開く様にしているためSquare Musicから一度離脱をしたとしてもまたSquare Musicアプリに戻ってくる可能性を高めている
+
+### Chat機能
+Ajaxを使用してページ遷移をせずにチャットをできる様にしページ遷移の煩わしさを解消
+
+<br>
+<br>
+
+# 使用技術
+### 開発環境
+Docker(Dockerfile, Docker-compose.yml を使って、ローカルに環境を構築)
+<br>
+
+### フロントエンド
+HTML/CSS Bootstrap JavaScript jQuery3.3.1
+<br>
+
+### バックエンド
+PHP7.2.34/Laravel6.2
+<br>
+
+### ソースコード管理
+Git/GitHub
+
+### デプロイ環境
+Heroku
+
+<br>
+<br>
+
+# 機能一覧
+課題解決のために必要な機能だけ実装することを意識しました。
+|No.|必要機能候補|優先度|×の理由|
+|---|---|---|---|
+|1|ユーザ登録機能|○|-|
+|2|ログイン機能|○|-|
+|3|パスワード変更機能|○|-|
+|4|プロフィール編集|○|-|
+|5|プレイリスト登録機能|○|-|
+|6|プロフィール編集|○|-|
+|7|フォロー機能|○|-|
+|8|いいね機能|○|-|
+|9|ユーザ検索機能|○|-|
+|10|chat機能をajaxを使用して実装|○|-|
+|11|SNSを登録できる様にする|○|-|
+|12|レスポンシブ機能|△|バックエンドの処理を優先に実装していたのでデプロイ後に追加|
+|13|アプリケーションのSPA化|×|SPAをReactを用いて実装したいため現在Reactを学習中|
+
+# DB設計
+
+# 工夫した点
+### 1.実務案件の中で学んだことを自分のポートフォリオにも使用した。
+実際にLaravelの実務案件にアサインした時に学んだ
+<ul>
+    <li><b>トランザクション</b></li>
+    <li><b>変数名の命名の重要性</b></li>
+    <li><b>PHPDocを記述</b>など</li>
+</ul>
+を自身のポートフォリオに追加していきました。
+
+### 2.自力での解決。
+自身でポートフォリオを作成する際に教材の様にもとより記述するコードが用意されているわけではないので、最初はわからないことばかりでしたが、わからない時は、検索をして解決方法を調べる、Udemyで概念部分をしっかりと固める、知り合いの人に助言をもらうなどの方法を使い解決してこのアプリを作りました。
+それにより自分で解決するための自己解決能力・解決のために必要な問題の細分化能力が以前よりついたと感じます。
+すぐに誰かに答えを聞くことは、大事かもしれませんが自身でわからないことを調べたり・悩んで解決していくことが何より自分の能力向上には、欠かせないことだと感じました。
+
+### 3.GitHubの活用
+GitHubは、現場に入ると必ず使用するので、今回のポートフォリオ作りでも活用しました。
+GitHubを使用したいに気をつけたこと
+<ul>
+    <li>ブランチをきり開発を進める</li>
+    <li>pull requestの作成の際は、追加点・変更点・削除・特記事項など必要に応じて記述</li>
+    <li>コミットの際は、コメントを残すなど</li>
+</ul>
+現場に入ると当たり前に必要であることを今回の開発でも取り入れて作成しました。
+
+# 課題
+以下が残存課題です。
+<ul>
+    <li>
+        <p>SPA化をReactにより実現する</p>
+        <p> =>Reactの学習が必要</p>
+    </li>
+    <li>
+        <p>Spotify APIを実装する</p>
+        <p> =>Spotify APIは、Pythonを使用するのが一般的な様でPythonについて学ぶ必要がある</p>
+    </li>
+    <li>
+        <p>レスポンシブ対応</p>
+        <p> =>ある程度は、グリッドシステムによりレスポンシブを気にして開発は、できたが完璧ではない</p>
+    </li> 
+    <li>
+        <p>リファクタリング</p>
+        <p> =>フォームリクエストを作成して、そこにヴァリデーションルールを記述していく</p>
+    </li> 
+    <li>
+        <p>変数の名前の変更</p>
+        <p> =>変数の名前がまだ一眼でわかる様には、できていないため変更の余地あり</p>
+    </li> 
+    <li>
+        <p>URI命名がわかりやすいか</p>
+        <p> =>URIの命名は、「Webを支える技術」という本に準ずる</p>
+    </li> 
+</ul>
+
+# 学んだこと
+<ul>
+    <li>わからない箇所がある場合、その解決方法はどこがわからないかをまず言語化し解決のために必要なことを細分化をして一つ一つ解決していくのがエラー・わからない箇所が出たときの解決の1番の近道ということがわかった</li>
+    <li>人に聞いてすぐにエラーを解決するのもいいが自分で悩み解決したことの方が知識の定着が早いと感じた</li>
+    <li>MVCをしっかりと理解し使うことによりLaravelは格段に使いやすく可読性が上がるということがリファクタリングをしていくことで学ぶことができた</li>
+</ul>
