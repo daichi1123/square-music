@@ -12,6 +12,10 @@ $(function() {
   });
 });
 
+$(function () {
+	$('[data-toggle="tooltip"]').tooltip();
+});
+
 // $(function ()
 // {
 //   $('.toggle_wish').on('click', function ()

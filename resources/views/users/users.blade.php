@@ -73,13 +73,13 @@
                     @else
                         <span class="pl-1"></span>
                     @endif
-                    <a href="{{ route('home.chat') }}" style="color:black; font-size: 32px;">
+                    <a href="{{ route('home.chat') }}" data-toggle="tooltip" data-placement="top" title="チャットルームへ" style="color:black; font-size: 32px;">
                         <i class="far fa-comment fa-flip-horizontal"></i>
                     </a>
                     @if($user->insta_id)
                         @if(Auth::check())
                             @if (Auth::id() != $user->id)
-                            <a class="insta_btn" href="{{ 'https://www.instagram.com/'.$user->insta_id.'/' }}" target="_blank">
+                            <a class="insta_btn" href="{{ 'https://www.instagram.com/'.$user->insta_id.'/' }}" data-toggle="tooltip" data-placement="top" title="インスタへ" target="_blank">
                                 <span class="insta">
                                     <i class="fab fa-instagram"></i>
                                 </span> 
