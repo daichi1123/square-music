@@ -170,6 +170,7 @@ return [
         'country_id' => '国名',
         'age_id' => '年齢',
         'sex' => '性別',
+        'self_introduction' => '自己紹介',
         'insta_id' => 'Instagram ID',
         'review' => 'コメント',
     ],

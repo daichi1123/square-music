@@ -62,6 +62,10 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    <label class="col-sm-4 col-form-label text-sm-center" for="self_introduction">自己紹介</label>
+                    <textarea class="col-sm-6 introduction" name="self_introduction" placeholder="ここに自己紹介を入力してください" cols="50" rows="5">{{ $user->self_introduction }}</textarea>
+                </div>
+                <div class="form-group">
                     <label class="col-sm-4 col-form-label text-sm-center">Instagram&nbsp;ID</label>
                     <input class="col-sm-6" name="insta_id" type="text" value="{{ $user->insta_id }}" placeholder="InstagramのID記述してください" />
                 </div>

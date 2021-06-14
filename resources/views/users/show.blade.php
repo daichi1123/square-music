@@ -54,7 +54,7 @@
             <div class="card-body">
                 <h4 class="card-title">
                     <b>
-                    {{$user->favorites_user->count()}}
+                    {{$user->self_introduction}}
                     </b>
                 </h4>
             </div>

@@ -15,6 +15,11 @@ class UsersController extends Controller
 {
     protected $user;
 
+    /**
+     * ファイル内でUserデータをインスタンス化せずに使用可能にしている
+     * 
+     * @param  App\User $user
+     */
     public function __construct(User $user)
     {
         $this->user = $user;
@@ -78,19 +83,30 @@ class UsersController extends Controller
      */
     public function editUser($id)
     {
-        $user = User::findOrFail($id);
-        $registeredCountryName = $user->country->country_name;
-        $registeredAgeName = $user->age->age_name;
-        $sexName = $user->sex;
+        if (Auth::id() == $id) {
+            $user = User::findOrFail($id);
+            $registeredCountryName = $user->country->country_name;
+            $registeredAgeName = $user->age->age_name;
+            $sexName = $user->sex;
 
-        return view('users.user_edit', compact(
-            'user',
-            'registeredCountryName',
-            'registeredAgeName',
-            'sexName'
-        ));
+            return view('users.user_edit', compact(
+                'user',
+                'registeredCountryName',
+                'registeredAgeName',
+                'sexName'
+            ));
+        } else {
+            return back();
+        }
     }
 
+    /**
+     * 自身のユーザ情報を更新する処理
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function updateUser(Request $request, $id)
     {
         $updatingUserInfo = User::findOrFail($id);
@@ -105,6 +121,7 @@ class UsersController extends Controller
                 'country_id',
                 'age_id',
                 'sex',
+                'self_introduction',
                 'insta_id'
             ]);
         // デッドロック時のトランザクションリトライ回数
@@ -119,6 +136,13 @@ class UsersController extends Controller
         return redirect()->route('user.index');
     }
 
+    /**
+     * プレイリスト作成ページでinstagramのID登録or変更する処理
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function updateInstaId(Request $request, $id)
     {
         $updatingUserInfo = User::findOrFail($id);
@@ -142,13 +166,28 @@ class UsersController extends Controller
         return back()->with('flash_message_insta', __('をInstagramのIDとして登録完了'));
     }
 
-    // 削除完了
+    /**
+     * 自身のユーザ情報を削除するページを表示
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function deletePage($id)
     {
-        $userComfirm = User::findOrFail($id);
-        return view('users.user_confirm', compact('userComfirm'));
+        if (Auth::id() == $id) {
+            $userComfirm = User::findOrFail($id);
+            return view('users.user_confirm', compact('userComfirm'));
+        } else {
+            return back();
+        }
     }
 
+    /**
+     * 自身のユーザ情報を削除する処理
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
     public function deleteUser($id)
     {
         $deletingUser = User::findOrFail($id);

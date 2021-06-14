@@ -63,11 +63,12 @@ class RegisterController extends Controller
             'middle_name' => ['string', 'nullable', 'max:24'],
             'first_name' => ['required', 'string', 'max:24'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
-            'age_id' => ['required', 'integer', 'max:'. $maxAgeId],
-            'country_id' => ['required', 'integer', 'max:'. $maxCountryId],
-            'sex' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'insta_id' => ['nullable', 'string', 'max:50'],
+            'country_id' => ['required', 'integer', 'max:' . $maxCountryId],
+            'age_id' => ['required', 'integer', 'max:' . $maxAgeId],
+            'sex' => ['required', 'string'],
+            'self_introduction' => ['required', 'string', 'max:250'],
+            'insta_id' => ['nullable', 'string', 'max:50']
         ]);
     }
 
@@ -84,11 +85,12 @@ class RegisterController extends Controller
             'middle_name' => $data['middle_name'],
             'first_name' => $data['first_name'],
             'email' => $data['email'],
+            'password' => Hash::make($data['password']),
             'country_id' => $data['country_id'],
             'age_id' => $data['age_id'],
             'sex' => $data['sex'],
-            'insta_id' => $data['insta_id'],
-            'password' => bcrypt($data['password']),
+            'self_introduction' => $data['self_introduction'],
+            'insta_id' => $data['insta_id']
         ]);
     }
 }

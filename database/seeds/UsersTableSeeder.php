@@ -18,6 +18,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '1',
             'age_id' => '1',
             'sex' => '男性',
+            'self_introduction' => 'これはテストです。',
             'password' => bcrypt('example1'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -28,6 +29,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '1',
             'age_id' => '1',
             'sex' => '女性',
+            'self_introduction' => 'これはテストです。',
             'password' => bcrypt('example2'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -38,6 +40,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '1',
             'age_id' => '2',
             'sex' => '男性',
+            'self_introduction' => 'これはテストです。',
             'password' => bcrypt('example3'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -48,6 +51,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '1',
             'age_id' => '1',
             'sex' => '男性',
+            'self_introduction' => 'これはテストです。',
             'password' => bcrypt('example4'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -59,6 +63,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '11',
             'age_id' => '3',
             'sex' => '男性',
+            'self_introduction' => 'This is a test',
             'password' => bcrypt('example5'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -70,6 +75,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '10',
             'age_id' => '3',
             'sex' => '女性',
+            'self_introduction' => 'This is a test',
             'password' => bcrypt('example6'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -80,6 +86,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '2',
             'age_id' => '2',
             'sex' => '女性',
+            'self_introduction' => 'Esto es una prueba',
             'password' => bcrypt('example7'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -90,6 +97,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '4',
             'age_id' => '4',
             'sex' => '男性',
+            'self_introduction' => '这是一个测试',
             'password' => bcrypt('example8'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -100,6 +108,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '6',
             'age_id' => '6',
             'sex' => '女性',
+            'self_introduction' => 'Questa è una prova',
             'password' => bcrypt('example9'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -110,6 +119,7 @@ class UsersTableSeeder extends Seeder
             'country_id' => '5',
             'age_id' => '5',
             'sex' => '男性',
+            'self_introduction' => "C'est un test",
             'password' => bcrypt('example10'),
             'created_at' => date('Y-m-d H:i:s'),
         ]);
