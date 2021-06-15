@@ -1,72 +1,390 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+![README toppage](image/toppage.png)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+# 初めに
 
-## About Laravel
+<p>昔からものづくりと音楽が好きでした。</p>
+<p>留学に行った際に海外の友達に「日本の曲教えて！！」と言われてオススメの曲を教えたけど「どんな曲名か忘れた」とよく言われたのでその状況を解決するために以前から興味のあったプログラミングを使い解決することを決意しました。</p>
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# アプリ概要
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## タイトル
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### <strong>Square Music</strong>
 
-## Learning Laravel
+<p>Square = 広場　　Music = 音楽</p>
+<p>音楽をたくさんの人と共有していろんな国の音楽を知ることができて、話題の種になる場所を作りたかった。</p>
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+<br>
+<br>
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 開発の背景
 
-## Laravel Sponsors
+<hr>
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### 自分の「あればいい」を実現する！
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
+![README get](image/get.jpg)
 
-## Contributing
+<br>
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<p>「海外の友達とたくさんのいい曲を共有したい」という思いから今回のアプリケーションを作ることにしました。</p>
+<p>留学中に留学先で友達なった人たちに<b>「日本のオススメの曲を教えてよ！！」</b>と言われることがよくありました。<br>教えようとしたのですが、ここに<b>問題が1つ</b>ありした。</p>
+<p>仮に好きな曲を教えたとしても母国の言葉でないために後で教えた曲を友達が調べようとしても忘れてしまっているということが多々ありました。</p>
+<p>いろんなアプリで曲を共有することができるけど<b>「なぜ自分で作る必要があるのか??」</b>という疑問が出ると思いますが、理由があります。</p>
+<p>Spotifyなどのストリーミングサービスでは、自身がたくさんのプレイリストをすでに登録していると思います。</p>
+<ul>
+    <li>ドライブ用</li>
+    <li>勉強中のBGM</li>
+</ul>
+など
+<br>
+<br>
 
-## Security Vulnerabilities
+<p>今回の私の目的は、<b>「海外の友達と自国の好きな曲を共有して友達を増やしていく」</b>という一点に絞ってアプリケーションを作りたいという思いからこのアプリケーションを作成することを決めました</p>
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+<br>
+<br>
 
-## License
+## 開発での使用言語
 
-The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+・HTML CSS JavaScript PHP/Laravel MySQL Docker Vagrant
+
+<br>
+
+## 今後、機能追加に当たって使用したい言語
+
+・React TypeScript Python
+
+<br>
+<br>
+
+## ターゲット
+
+### ターゲット ①（私が留学中に仲良くなった友達）
+
+<ul>
+    <li>日本のことに興味を持ってくれている自分の友達</li>
+</ul>
+
+<br>
+
+### ターゲット ②（留学生と仲良くなりたい日本人）
+
+<ul>
+    <li>英語を話せないけど文字ベースなら会話ができる人</li>
+    <li>話す話題がすぐに尽きてしまう人</li>
+</ul>
+
+<br>
+
+### ターゲット ③（日本に来ている留学生）
+
+<ul>
+    <li>日本人と友達になりたいけど話す話題がない</li>
+</ul>
+
+<br>
+<br>
+
+# 使用イメージ
+
+<br>
+
+### 新規登録、ログイン/ログアウト機能
+
+<hr>
+
+<br>
+<p><b>新規登録</b></p>
+
+![README register](image/register.png)
+
+<p><b>ログイン</b></p>
+
+![README Image 1](image/login.gif)
+
+<p>＊ログインは、テスト用に input タグの value属性 に
+<br>・メールアドレス<br>・パスワード<br>を記述しております。</p>
+
+<br>
+
+### メール送信によりパスワード変更
+
+<hr>
+
+<p>Google アカウントを使用して、メールを送信 → パスワード変更を実現</p>
+<br>
+
+<p>下記の画像の順番にパスワードの変更を行っていきます。</p>
+
+![README email_confirm_for_changing_password](image/email_confirm.png)
+![README get_email](image/email_password.png)
+![README password_change](image/password_change.png)
+
+<br>
+
+### ユーザ検索機能
+
+<hr>
+
+<p>名前 or 国名でユーザを検索できる様にしております。</p>
+<br>
+<p>＊<b>あいまい検索可能</b></p>
+
+![README search_for_users](image/search_users.png)
+
+<br>
+
+### インスタグラムの ID 登録
+
+<hr>
+
+<p>ID登録後、インスタのアイコンをクリックすると登録したユーザのインスタページに飛ぶことが可能</p>
+
+<p><b>＊新規タブで開く様にしているため Square Music から一度離脱をしたとしてもまた Square Music アプリに戻ってくる可能性を高めている</b></p>
+
+<p>登録・変更方法は、3通りあります。</p>
+<ul>
+    <li>ユーザ新規登録ページ</li>
+    <li>プレイリスト登録ページ</li>
+    <li>ユーザ編集</li>
+</ul>
+
+#### ユーザ新規登録ページ
+
+![README Image 1](image/register2.png)
+
+<br>
+
+#### プレイリスト登録ページ
+
+![README Image 1](image/insta_id2.png)
+
+<br>
+
+#### ユーザ編集
+
+![README Image 1](image/insta_id3.png)
+
+<p>＊このいづれか３つの場所でInstaram IDを登録すると、instagramのアイコンが付与され、そこから登録したインスタアカウントページに飛ぶことができます。</p>
+
+<br>
+
+### プレイリストの説明
+
+<hr>
+
+<img src="image/playlist.png" width="300">
+
+<p><b>プレイリストの説明</b></p>
+<ul>
+    <li>
+        <p>ヘッダー部分</p>
+        <ul>
+            <li>名前</li>
+            <li>国名</li>
+            <li>プレイリストのいいね数</li>
+        </ul>
+    </li>
+    <li>
+        <p>フッター部分</p>
+        <ul>
+            <li>
+                <p>ハートマーク</p>
+                <p>いいねを押すことができる</p>
+            </li>
+            <li>
+                <p>吹き出しマーク</p>
+                <p>チャットルームへ遷移</p>
+            </li>
+            <li>
+                <p>吹き出しマーク</p>
+                <p>チャットルームへ遷移</p>
+            </li>
+            <li>
+                <p>Instagramアイコン</p>
+                <p>自身が登録したinstagramプロフィールページに遷移する</p>
+            </li>
+        </ul>
+    </li>
+    <li>
+        <p>本体には、登録したプレイリスト表示</p>
+    </li>
+</ul>
+
+<br>
+<br>
+
+### Chat 機能
+
+<hr>
+
+![README Image 1](image/chat.gif)
+
+<p>Ajax を使用してページ遷移をせずにチャットをできる様にしページ遷移の煩わしさを解消</p>
+
+<br>
+
+### ユーザ情報削除
+
+<hr>
+
+![README Image 1](image/delete_user.gif)
+
+<p>ユーザ削除のための確認ページを作りましたが、ワンクリックで削除では、誤操作による削除の可能性があるためモーダルウィンドウを使用</p>
+
+<br>
+<br>
+
+# 使用技術
+
+### 開発環境
+
+<p>Vagrant・Docker(Dockerfile, Docker-compose.yml を使って、ローカルに環境を構築)</p>
+
+<br>
+
+### フロントエンド
+
+<p>HTML/CSS Bootstrap JavaScript jQuery3.3.1</p>
+
+<br>
+
+### バックエンド
+
+<p>PHP7.2.34/Laravel6.2</p>
+
+<br>
+
+### ソースコード管理
+
+<p>Git/GitHub</p>
+
+<br>
+
+### デプロイ環境
+
+<p>Heroku</p>
+
+<br>
+<br>
+
+# 機能一覧
+
+課題解決のために必要な機能だけ実装することを意識しました。
+|No.|必要機能候補|優先度|× の理由|
+|---|---|---|---|
+|1|ユーザ登録機能|○|-|
+|2|ログイン機能|○|-|
+|3|パスワード変更機能|○|-|
+|4|プロフィール編集|○|-|
+|5|プレイリスト登録機能|○|-|
+|6|プロフィール編集|○|-|
+|7|フォロー機能|○|-|
+|8|いいね機能|○|-|
+|9|ユーザ検索機能|○|-|
+|10|chat 機能を ajax を使用して実装|○|-|
+|11|SNS を登録できる様にする|○|-|
+|12|レスポンシブ機能|△|バックエンドの処理を優先に実装していたのでデプロイ後に追加|
+|13|アプリケーションの SPA 化|×|SPA を React を用いて実装したいため現在 React を学習中|
+
+<br>
+<br>
+
+# DB 設計
+
+<br>
+<br>
+
+# 工夫した点
+
+### 1.実務案件の中で学んだことを自分のポートフォリオにも使用した。
+
+<p>実際に Laravel の実務案件にアサインした時に学んだ</p>
+<ul>
+    <li><b>トランザクション</b></li>
+    <li><b>変数名の命名の重要性</b></li>
+    <li><b>PHPDocを記述</b>など</li>
+</ul>
+<p>を自身のポートフォリオに追加していきました。</p>
+
+<br>
+
+### 2.自力での解決。
+
+<p>自身でアプリケーションを作成の時は、教材の様に答えがないので最初はわからないことばかりでしたが、少しづつ理解が深まっていきました。</p>
+<p>自身で考えてもわからない時は、<b>Udemyなどの動画を見る</b>・<b>Webサイトで概念を学び</b>少しづつアプリケーションを作成してきました。</p>
+<p>それにより自分で解決するための<b>自己解決能力</b>・<b>解決のために必要な問題の細分化能力</b>が以前よりついたと感じます。</p>
+<p>すぐに誰かに答えを聞くことも、時には大事かもしれませんが<b>自身でわからないことを調べたり</b>・<b>悩んで解決していく</b>ことが自分の能力向上には、最も欠かせないことだと感じました。</p>
+
+<br>
+
+### 3.GitHub の活用
+
+GitHub は、現場に入ると必ず使用するので、今回のポートフォリオ作りでも活用しました。
+GitHub を使用したいに気をつけたこと
+
+<ul>
+    <li>ブランチをきり開発を進める</li>
+    <li>pull requestの作成の際は、<b>追加・変更・削除・特記事項</b>など必要に応じて記述</li>
+    <li>コミットの際は、コメントを残すなど</li>
+</ul>
+<p>現場に入ると当たり前に必要であることを今回の開発でも取り入れて作成しました。</p>
+
+<br>
+<br>
+
+# 課題
+
+以下が残存課題です。
+
+<ul>
+    <li>
+        <p>SPA化をReactにより実現する</p>
+        <p> =>Reactの学習が必要</p>
+    </li>
+    <li>
+        <p>Spotify APIを実装する</p>
+        <p> =>Spotify APIは、Pythonを使用するのが一般的な様でPythonについて学ぶ必要がある</p>
+    </li>
+    <li>
+        <p>レスポンシブ対応</p>
+        <p> =>ある程度は、グリッドシステムによりレスポンシブを気にして開発は、できたが完璧ではない</p>
+    </li> 
+    <li>
+        <p>リファクタリング</p>
+        <p> =>フォームリクエストを作成して、そこにヴァリデーションルールを記述していく</p>
+    </li> 
+    <li>
+        <p>変数の名前の変更</p>
+        <p> =>変数の名前がまだ一眼でわかる様には、できていないため変更の余地あり</p>
+    </li> 
+    <li>
+        <p>URI命名がわかりやすいか</p>
+        <p> =>URIの命名は、「Webを支える技術」という本に準ずる</p>
+    </li> 
+</ul>
+
+<br>
+<br>
+
+# 学んだこと
+
+<p>私がこのポートフォリオ作りで大きく成長したと考えるのは、3点あります。</p>
+<ol>
+    <li>
+        <p>人に聞いてすぐにエラーを解決するのもいいが自分で悩み解決したことの方が知識の定着が早いと感じた</p>
+    </li>
+    <li>
+        <p>わからない箇所がある場合</p>
+        <p>その解決方法として、</p>
+        <ul>
+            <li>わからない部分を言語化する</li>
+            <li>言語化した問題について細分化をする</li>
+        </ul>
+        <p>この2つの順序にそってエラー・解決をしていくのが、自身でエラーを解決していく際の最も近道になることがわかりました。</p>
+    </li>
+    <li>
+        <p>MVCをしっかりと理解し使うことによりLaravelは格段に使いやすく可読性が上がるということがリファクタリングをしていく中で学ぶことができた</p>
+    </li>
+</ol>
