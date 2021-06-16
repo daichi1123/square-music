@@ -292,7 +292,8 @@
 
 # DB 設計
 
-現在作成中
+![README Image 1](image/db_design.png)
+
 <br>
 <br>
 
