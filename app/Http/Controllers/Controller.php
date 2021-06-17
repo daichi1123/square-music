@@ -11,11 +11,12 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public function counts($user) {
+    public function counts($user)
+    {
         $count_songs = $user->songs()->count();
         $count_followings = $user->followings()->count();
         $count_followers = $user->followers()->count();
-        
+
         return [
             'count_songs' => $count_songs,
             'count_followings' => $count_followings,

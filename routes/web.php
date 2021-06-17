@@ -40,7 +40,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
     });
 
-    Route::get('/mypage', 'UsersController@mypage')->name('mypage');
     // instaIDの登録
     Route::put('/register/{id}', 'UsersController@updateInstaId')->name('register.insta');
 
