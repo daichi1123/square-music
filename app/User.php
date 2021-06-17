@@ -7,7 +7,6 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use App\Notifications\ResetPassword;
-use App\Rules\HalfWidth;
 
 class User extends Authenticatable
 {
@@ -61,34 +60,6 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-    /**
-     * ユーザ情報を更新する際のヴァリデーション
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
-    public function rules()
-    {
-        $country = new Country();
-        // 値をデータベースのcountry_id登録数の最大値までにする
-        $maxCountryId = $country->max('id');
-
-        $age = new Age();
-        // 値をデータベースのage_id登録数の最大値までにする
-        $maxAgeId = $age->max('id');
-
-        return [
-            'last_name' => ['required', 'string', 'max:24'],
-            'middle_name' => ['string', 'nullable', 'max:24'],
-            'first_name' => ['required', 'string', 'max:24'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users', 'confirmed'],
-            'country_id' => ['required', 'integer', 'max:' . $maxCountryId],
-            'age_id' => ['required', 'integer', 'max:' . $maxAgeId],
-            'self_introduction' => ['required', 'string', 'max:250'],
-            'insta_id' => ['nullable', 'string', new HalfWidth, 'max:50']
-        ];
-    }
 
     public function country()
     {
