@@ -64,18 +64,6 @@ class UsersController extends Controller
     }
 
     /**
-     * 自身のプロフィールを情報を表示する
-     * 
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function mypage($id)
-    {
-        $user = User::findOrFail($id);
-        return view('users.my_detail', compact('user'));
-    }
-
-    /**
      * 自身のユーザ情報を変更するためのページ表示
      * 
      * @param int $id
