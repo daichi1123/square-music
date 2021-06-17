@@ -173,5 +173,7 @@ return [
         'self_introduction' => '自己紹介',
         'insta_id' => 'Instagram ID',
         'review' => 'コメント',
+        'url' => 'URL',
+        'comment' => 'コメント',
     ],
 ];
