@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\CreateSongRequest;
 use Illuminate\Support\Facades\DB;
 
 use App\Song;
@@ -41,9 +41,8 @@ class SongsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CreateSongRequest $request)
     {
-        $this->validate($request, $this->song->rules());
         $newSongInfo = $request;
         $newSongInfo->session()->regenerateToken();
         // デッドロック発生時のトランザクション再試行回数

@@ -13,11 +13,4 @@ class Review extends Model
     protected $guarded = [
         'create_at', 'update_at'
     ];
-
-    public function rules()
-    {
-        return [
-            'review' => ['required', 'string', 'max:100'],
-        ];
-    }
 }

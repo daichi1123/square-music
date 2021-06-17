@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateUserRequest;
+use App\Http\Requests\UpdateInstaIdRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Rules\HalfWidth;
 
 use App\User;
 use App\Song;
@@ -91,14 +92,13 @@ class UsersController extends Controller
     /**
      * 自身のユーザ情報を更新する処理
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\UpdateInstaIdRequest  $request
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function updateUser(Request $request, $id)
+    public function updateUser(UpdateUserRequest $request, $id)
     {
         $updatingUserInfo = User::findOrFail($id);
-        $this->validate($request, $this->user->rules());
         $selectRequestParameter = $request
             ->only([
                 'id',
@@ -127,16 +127,13 @@ class UsersController extends Controller
     /**
      * プレイリスト作成ページでinstagramのID登録or変更する処理
      * 
-     * @param  \Illuminate\Http\Request  $request
+     * @param  App\Http\Requests\UpdateUserRequest  $request
      * @param int $id
      * @return \Illuminate\Http\Response
      */
-    public function updateInstaId(Request $request, $id)
+    public function updateInstaId(UpdateInstaIdRequest $request, $id)
     {
         $updatingUserInfo = User::findOrFail($id);
-        $request->validate([
-            'insta_id' => ['nullable', 'string', new HalfWidth, 'max:50']
-        ]);
         $selectRequestParameter = $request
             ->only([
                 'id',

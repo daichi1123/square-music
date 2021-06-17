@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateReviewRequest;
 use App\Review;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -33,10 +33,9 @@ class ReviewController extends Controller
         return view('hometalk', compact('reviews', 'user'));
     }
 
-    public function add(Request $request)
+    public function add(CreateReviewRequest $request)
     {
         $user = Auth::user();
-        $this->validate($request, $this->review->rules());
         $review = $request->input('review');
         Review::create([
             'login_id' => $user->id,
