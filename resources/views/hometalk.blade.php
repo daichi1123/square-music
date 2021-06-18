@@ -24,6 +24,7 @@
                 placeholder="push massage (shift + Enter)"
                 aria-label="With textarea"
                 onkeydown="if(event.shiftKey&&event.keyCode==13){document.getElementById('submit').click();return false};"
+                autofocus
             ></textarea>
             <button type="submit" id="submit" class="btn btn-outline-primary review-btn">Submit</button>
         </div>

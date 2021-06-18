@@ -121,7 +121,7 @@ class UsersController extends Controller
             }, $retryTimes);
         }
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('flash_message', __('ユーザ情報を更新しました'));
     }
 
     /**
@@ -182,7 +182,7 @@ class UsersController extends Controller
             $deletingUser->delete();
         }, $retryTimes);
 
-        return redirect()->route('user.index');
+        return redirect()->route('user.index')->with('flash_message_delete', __('ユーザ情報を削除しました'));
     }
 
     /**
