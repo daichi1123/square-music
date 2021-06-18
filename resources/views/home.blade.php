@@ -1,6 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
+@if (session('flash_message_delete'))
+    <div class="alert alert-danger">
+        {{ session('flash_message_delete') }}
+    </div>
+@endif
     <div class="center jumbotron bg-success">
         <div class="text-center text-white">
             <h1>Square Music</h1>
