@@ -46,15 +46,12 @@
 
 ## 開発での使用言語
 
-<hr>
 <p>・HTML CSS JavaScript PHP/Laravel MySQL Docker Vagrant</p>
 
 <br>
 <br>
 
 ## ターゲット
-
-<hr>
 
 ### ターゲット ①（私が留学中に仲良くなった友達）
 
