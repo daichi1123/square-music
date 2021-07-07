@@ -22,24 +22,22 @@
         </div>
     </div>
 
-    <div class="col-lg-6 mt-4 mb-3">
+    {{-- <div class="col-lg-6 mt-4 mb-3">
         <div class="card text-center">
             <div class="card-header">
                 <h4>
                     <b>
                         総いいね数
                     </b> 
-                </h4>
-            </div>
             <div class="card-body">
                 <h4 class="card-title">
                     <b>
-                    {{$user->favorites_user->count()}}
+                    
                     </b>
                 </h4>
             </div>
         </div>
-    </div>
+    </div> --}}
     <div class="col-lg-12 mb-4">
         <div class="card text-center">
             <div class="card-header">
@@ -50,7 +48,7 @@
             <div class="card-body">
                 <h4 class="card-title">
                     <b>
-                    {{$user->favorites_user->count()}}
+                        {{$user->self_introduction}}
                     </b>
                 </h4>
             </div>

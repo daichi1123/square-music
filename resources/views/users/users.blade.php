@@ -17,7 +17,7 @@
 <div class="row py-3 pb-1">
         @endif
         <div class="col-lg-4">
-            <div class="card" style="display: flow-root;">
+            <div class="card border" style="display: flow-root;">
                 <div class="card-header">
                     <b>
                     @if(Auth::check())
@@ -30,11 +30,11 @@
                     </b>
                     <span>from</span>
                     <b>{{ $user->country->country_name }}</b>
-                    @if($song)
-                    <span class="badge badge-pill badge-success">いいね {{ $song->favorite_users->count() }}</span>
+                    {{-- @if($song)
+                    <span class="badge badge-pill badge-success">いいね {{ $user->favorite_user->count() }}</span>
                     @else
                     <span class="badge badge-pill badge-danger">未登録</span>
-                    @endif
+                    @endif --}}
                 </div>
                 <div class="text-center">
                 @if(isset($song))
@@ -63,27 +63,34 @@
                 </div>
                 <div>
                 @if (Auth::user())
-                    @if($song)
-                        @include('favorite.favorite_button', ['song'=>$song])
+                    @if($user->insta_id)
                         @if(Auth::check())
-                            @if (Auth::id() == $user->id)
-                            <span class="pl-1"></span>
+                            @if (Auth::id() != $user->id)
+                            <a class="insta_btn ml-1" href="{{ 'https://www.instagram.com/'.$user->insta_id.'/' }}" data-toggle="tooltip" data-placement="top" title="インスタへ" target="_blank">
+                                <span class="insta">
+                                    <i class="fab fa-instagram"></i>
+                                </span> 
+                            </a>
                             @endif
                         @endif
                     @else
                         <span class="pl-1"></span>
                     @endif
-                    <a href="{{ route('home.chat') }}" data-toggle="tooltip" data-placement="top" title="チャットルームへ" style="color:black; font-size: 32px;">
+                    <a class="ml-1" href="{{ route('home.chat') }}" data-toggle="tooltip" data-placement="top" title="チャットルームへ" style="color:black; font-size: 32px;">
                         <i class="far fa-comment fa-flip-horizontal"></i>
                     </a>
-                    @if($user->insta_id)
+                    @if($song)
+                        <song-favorite
+                            :initial-is-favorite-by='@json($song->isFavoriteBy(Auth::user()))'
+                            :initial-count-favorites='@json($song->count_favorites)'
+                            :authorized='@json(Auth::check())'
+                            endpoint="{{ route('songs.favorite', ['song' => $song]) }}"
+                            style="display: inline-flex;"
+                        >
+                        </song-favorite>
                         @if(Auth::check())
-                            @if (Auth::id() != $user->id)
-                            <a class="insta_btn" href="{{ 'https://www.instagram.com/'.$user->insta_id.'/' }}" data-toggle="tooltip" data-placement="top" title="インスタへ" target="_blank">
-                                <span class="insta">
-                                    <i class="fab fa-instagram"></i>
-                                </span> 
-                            </a>
+                            @if (Auth::id() == $user->id)
+                            <span class="pl-1"></span>
                             @endif
                         @endif
                     @else

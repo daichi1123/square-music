@@ -3,8 +3,8 @@
 @section('content')
 
 <div class="pb-5">
-    <div class="card">
-        <div class="card-header">新規登録</div>
+    <div class="card border">
+        <div class="card-header bg-success">新規登録</div>
             <form action="{{ route('signup.post')}}" method="post">
             @csrf
             <div class="form-group mt-5">
@@ -34,17 +34,17 @@
                 <input class="offset-sm-4" id="js-passcheck" type="checkbox" />
                 <label for="js-password">パスワードを表示する</label>
             </div>
-            <div class="form-group row">
-                <label class="country_id col-sm-4 col-form-label text-sm-right">国名</label>
-                <select class="form-control col-sm-4" name="country_id">
+            <div class="form-group">
+                <label class="country_id col-md-4 col-form-label text-sm-right">国名</label>
+                <select class="custom-select offset-sm-4 col-sm-5" name="country_id">
                 @foreach(config('country_list') as $countryId => $countryName)
                     <option value="{{ $countryId }}">{{$countryName}}</option>
                 @endforeach
                 </select>
             </div>
-            <div class="form-group row">
-                <label class="age_id col-sm-4 col-form-label text-sm-right">年齢</label>
-                <select class="form-control col-sm-4" name="age_id">
+            <div class="form-group">
+                <label class="age_id col-md-4 col-form-label text-sm-right">年齢</label>
+                <select class="custom-select offset-sm-4 col-sm-5" name="age_id">
                 @foreach(config('age_list') as $ageId => $ageName)
                     <option value="{{ $ageId }}">{{$ageName}}</option>
                 @endforeach
@@ -53,15 +53,15 @@
             <div class="form-group row mb-4">
                 <label class="col-md-4 col-form-label text-md-right" for="radio01">性別</label>
                 <div class="col-md-6 mt-1">
-                    <div class="form-check form-check-inline">
+                    <div class="form-check">
                         <input class="form-check-input" id="inlineRadio01" name="sex" type="radio" value="男性" />
                         <label class="form-check-label" for="inlineRadio01">男性</label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check">
                         <input class="form-check-input" id="inlineRadio02" name="sex" type="radio" value="女性" />
                         <label class="form-check-label" for="inlineRadio02">女性</label>
                     </div>
-                    <div class="form-check form-check-inline">
+                    <div class="form-check">
                         <input class="form-check-input" id="inlineRadio03" name="sex" type="radio" value="その他" checked="checked" />
                         <label class="form-check-label" for="inlineRadio03">その他</label>
                     </div>

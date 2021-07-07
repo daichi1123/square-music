@@ -66,14 +66,7 @@
     <div class="row">
         @foreach ($songs as $key => $song)
         <div class="col-lg-4 py-2">
-            <div class="card" style="display: flow-root;">
-                <div class="card-header text-right">
-                    @if(isset($song))
-                    <span class="badge badge-pill badge-success">いいね {{ $song->favorite_users->count() }}</span>
-                    @else
-                    <span class="badge badge-pill badge-danger">未登録</span>
-                    @endif
-                </div>
+            <div class="card border" style="display: flow-root;">
                 <div class="text-center">
                 @if(isset($song))
                 <iframe
@@ -101,6 +94,21 @@
                 @endif
                 </div>
                 <div>
+                @if($song)
+                    <song-favorite
+                        :initial-is-favorite-by='@json($song->isFavoriteBy(Auth::user()))'
+                        :initial-count-favorites='@json($song->count_favorites)'
+                        :authorized='@json(Auth::check())'
+                        endpoint="{{ route('songs.favorite', ['song' => $song]) }}"
+                        style="display: inline-flex;"
+                    >
+                    </song-favorite>
+                    @if (Auth::id() == $user->id)
+                    <span class="pl-1"></span>
+                    @endif
+                @else
+                    <span class="pl-1"></span>
+                @endif
                 </div>
                 @if(isset($song->comment))
                 <div class="card-text py-1">

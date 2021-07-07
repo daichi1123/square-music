@@ -26,7 +26,7 @@ class CreateFavoritesTable extends Migration
                 ->references('id')
                 ->on('songs')
                 ->onDelete('cascade');
-            $table->unique(['user_id','song_id']);
+            // $table->unique(['user_id','song_id']);
         });
     }
 

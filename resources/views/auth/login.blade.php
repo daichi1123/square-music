@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8 py-5">
-                <div class="card">
+                <div class="card border">
                     <div class="card-header">ログイン</div>
     
                     <div class="card-body">
@@ -53,7 +53,7 @@
                                     <strong>初めての方は</strong>
                                 </font>
                             </p>
-                            <a class="btn btn-outline-secondary" type="button" href="/signup">新規登録をする</a>
+                            <a class="btn" type="button" href="/signup">新規登録をする</a>
                         </div>
                     </div>
                 </div>

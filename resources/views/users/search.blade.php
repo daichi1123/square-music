@@ -11,29 +11,31 @@
     </div>
 
     <form action="{{ route('users.search') }}" method="get">
-        <div class="row">
-            <div class="input-group mt-4 col-md-7 offset-2">
-                <h2 class="mr-4">ユーザ名</h2>
-                <input class="form-control" name="first_name" type="text" />
+        <div>
+            <h2 class="offset-2 mr-4">ユーザ名</h2>
+            <div class="input-group mt-4 text-center">
+                <input class="form-control col-md-7 offset-2" name="first_name" type="text" />
                 <span class="input-group-btn">
                     <button class="btn btn-primary ml-4" type="submit">検索</button>
                 </span>
             </div>
         </div>
 
-        <div class="form-group mt-4 col-md-7 offset-2">
-            {!! Form::label('country_id', '国名', ['class' => 'h2']) !!}
-            <select class="form-control" name="country_id">
-                @foreach(config('country_list') as $countryId => $countryName)
-                    <option value="{{ $countryId }}">{{$countryName}}</option>
+        <div>
+            <h2 class="offset-2 mr-4 mt-4">国名</h2>
+            <div class="form-group mt-4 text-center">
+                <select class="custom-select custom-select-lg col-md-8" name="country_id">
+                    @foreach(config('country_list') as $countryId => $countryName)
+                        <option value="{{ $countryId }}">{{$countryName}}</option>
+                    @endforeach
+                </select>
+            @if (count($errors) > 0)
+                @foreach ($errors->get('country_id') as $error)
+                    <div class="text-danger">{{ $error }}</div>
                 @endforeach
-            </select>
-        </div>
-        @if (count($errors) > 0)
-            @foreach ($errors->get('country_id') as $error)
-                <div class="text-danger">{{ $error }}</div>
-            @endforeach
-        @endif
+            @endif
+            </div>
+        <div>
     </form>
 
     <p>全{{ $users->count() }}名</p>
@@ -82,6 +84,9 @@
         <h2 class="py-5">検索結果がありませんでした</h2>
     </div>
     @endif
+</div>
+
+</div>
 </div>
 
 @endsection

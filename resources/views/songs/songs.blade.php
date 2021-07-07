@@ -8,16 +8,16 @@
                 <div class="song text-left d-inline-block">
                     <div>
                         @if($song)
-                            <div class="text-right">
-                                <span class="badge badge-pill badge-success">
-                                    いいね{{ $song->favorite_users->count() }} 
-                                </span>
-                            </div>
-                            <iframe src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
+                            <iframe
+                                src="{{ 'https://open.spotify.com/embed/playlist/'.$song->url }}?controls=1&loop=1&playlist={{ $song->url }}"
+                                width="300"
+                                height="380"
+                                frameborder="0"
+                                allowtransparency="true"
+                                allow="encrypted-media"
+                        >
+                        </iframe>
                         @else
-                            <div class="text-right">
-                                <span class="badge badge-pill badge-danger">未登録</span>
-                            </div>
                             <iframe src="https://open.spotify.com/embed/" width="300" height="380" frameborder="0"></iframe>
                         @endif
                     </div>
