@@ -32,13 +32,18 @@ Route::group(['prefix' => 'users/{id}'], function () {
     Route::get('followers', 'UsersController@followers')->name('followers');
 });
 
+Route::prefix('songs/{song}')->name('songs.')->group(function () {
+    Route::put('/favorite', 'SongsController@favorite')->name('favorite')->middleware('auth');
+    Route::delete('/favorite', 'SongsController@unfavorite')->name('unfavorite')->middleware('auth');
+});
+
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 
-    Route::group(['prefix' => 'songs/{id}'], function () {
-        Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
-        Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
-    });
+    // Route::group(['prefix' => 'songs/{id}'], function () {
+    //     Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
+    //     Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
+    // });
 
     // instaIDの登録
     Route::put('/register/{id}', 'UsersController@updateInstaId')->name('register.insta');

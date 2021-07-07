@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateSongRequest;
-use Illuminate\Support\Facades\DB;
 
 use App\Song;
+use App\Http\Requests\CreateSongRequest;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class SongsController extends Controller
 {
@@ -24,7 +26,7 @@ class SongsController extends Controller
      */
     public function create()
     {
-        $user = \Auth::user();
+        $user = Auth::user();
         $songs = $user->songs()->orderBy('id', 'desc')->paginate(9);
 
         $data = [
@@ -68,12 +70,40 @@ class SongsController extends Controller
         $deletingSong = Song::findOrFail($id);
         // デッドロック発生時のトランザクション再試行回数
         $retryTimes = 5;
-        if (\Auth::id() == $deletingSong->user_id) {
+        if (Auth::id() == $deletingSong->user_id) {
             DB::transaction(function () use ($deletingSong) {
                 $deletingSong->delete();
             }, $retryTimes);
         }
 
         return back()->with('flash_message_delete', 'プレイリスト削除に成功しました。');
+    }
+
+    /**
+     * 指定したプレイリストを削除
+     * 
+     * @param  App\Song $song
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function favorite(Request $request, Song $song)
+    {
+        $song->favorites()->detach($request->user()->id);
+        $song->favorites()->attach($request->user()->id);
+
+        return [
+            'id' => $song->id,
+            'countFavorites' => $song->count_favorites,
+        ];
+    }
+
+    public function unfavorite(Request $request, Song $song)
+    {
+        $song->favorites()->detach($request->user()->id);
+
+        return [
+            'id' => $song->id,
+            'countFavorites' => $song->count_favorites,
+        ];
     }
 }

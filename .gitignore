@@ -1,5 +1,6 @@
 /node_modules
 /public/hot
+/public/css
 /public/storage
 /storage/*.key
 /vendor
@@ -10,9 +11,10 @@ Homestead.json
 Homestead.yaml
 npm-debug.log
 yarn-error.log
-resources/js/components/Example.jsx
-resources/js/components/fav.jsx
 resources/js/app.js
-resources/js/app.js
-resources/views/favorite/fav_button.blade.php
-resources/views/favcom.blade.php
+public/css
+public/js
+public/mix-manifest.json
+
+# 使ってない部分
+/resources/views/favorite/

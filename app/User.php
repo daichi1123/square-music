@@ -66,15 +66,16 @@ class User extends Authenticatable
         return $this->hasMany(Song::class);
     }
 
-    public function favorites()
-    {
-        return $this->belongsToMany(Song::class, 'favorites', 'user_id', 'song_id')->withTimestamps();
-    }
+    // public function favorites()
+    // {
+    //     return $this->belongsToMany(Song::class, 'favorites', 'user_id', 'song_id')->withTimestamps();
+    // }
 
     public function favorites_user()
     {
         return $this->belongsToMany(Song::class, 'favorites', 'song_id', 'user_id')->withTimestamps();
     }
+
 
     public function followings()
     {
@@ -111,32 +112,32 @@ class User extends Authenticatable
         }
     }
 
-    public function favorite($songId)
-    {
-        $exist = $this->is_favorite($songId);
+    // public function favorite($songId)
+    // {
+    //     $exist = $this->is_favorite($songId);
 
-        if ($exist) {
-            return false;
-        } else {
-            $this->favorites()->attach($songId);
-            return true;
-        }
-    }
+    //     if ($exist) {
+    //         return false;
+    //     } else {
+    //         $this->favorites()->attach($songId);
+    //         return true;
+    //     }
+    // }
 
-    public function unfavorite($songId)
-    {
-        $exist = $this->is_favorite($songId);
+    // public function unfavorite($songId)
+    // {
+    //     $exist = $this->is_favorite($songId);
 
-        if ($exist) {
-            $this->favorites()->detach($songId);
-            return true;
-        } else {
-            return false;
-        }
-    }
+    //     if ($exist) {
+    //         $this->favorites()->detach($songId);
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
-    public function is_favorite($songId)
-    {
-        return $this->favorites()->where('song_id', $songId)->exists();
-    }
+    // public function is_favorite($songId)
+    // {
+    //     return $this->favorites()->where('song_id', $songId)->exists();
+    // }
 }

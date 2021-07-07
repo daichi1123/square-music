@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="pb-5">
-    <div class="card">
+    <div class="card border">
         <div class="card-header">ユーザ情報修正</div>
             <form action="{{ route('user.update', ['id' => $user->id]) }}" method="post">
             @csrf
@@ -12,7 +12,7 @@
                     <label class="col-sm-4 text-sm-center pt-2">名前</label>
                     <input class="col-sm-2" type="text" name="first_name" value="{{ $user->first_name }}" placeholder="(名)太郎" autofocus />
                     <input class="col-sm-2" type="text" name="middle_name" value="{{ $user->middle_name }}" placeholder="(未記入OK)ミドルネーム" />
-                    <input class="col-sm-2" name="last_name" value="{{ $user->last_name }}" placeholder="(姓)山田" />
+                    <input class="col-sm-2" type="text" name="last_name" value="{{ $user->last_name }}" placeholder="(姓)山田" />
                 </div>
         
                 <div class="form-group">
@@ -26,36 +26,36 @@
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 col-form-label text-sm-center">メールアドレス確認</label>
-                    <input class="col-sm-6" name="email_confirmation" type="text"  placeholder="test1@example.com">
+                    <input class="col-sm-6" name="email_confirmation" type="email"  placeholder="test1@example.com">
                 </div>
-                <div class="form-group row pt-3">
-                    <label class="country_id col-sm-5 col-form-label text-sm-right">国名</label>
-                    <select class="form-control col-sm-4" name="country_id">
+                <div class="form-group">
+                    <label class="country_id col-md-4 col-form-label text-sm-right">国名</label>
+                    <select class="custom-select offset-sm-4 col-sm-5" name="country_id">
                     @foreach(config('country_list') as $countryId => $countryName)
                         <option value="{{ $countryId }}" @if(old('country_id', $registeredCountryName) == $countryName) selected @endif>{{$countryName}}</option>
                     @endforeach
                     </select>
                 </div>
-                <div class="form-group row">
-                    <label class="age_id col-sm-5 col-form-label text-sm-right">年齢</label>
-                    <select class="form-control col-sm-4" name="age_id">
+                <div class="form-group">
+                    <label class="age_id col-md-4 col-form-label text-sm-right">年齢</label>
+                    <select class="custom-select offset-sm-4 col-sm-5" name="age_id">
                     @foreach(config('age_list') as $ageId => $ageName)
                         <option value="{{ $ageId }}" @if(old('age_id', $registeredAgeName) == $ageName) selected @endif>{{$ageName}}</option>
                     @endforeach
                     </select>
                 </div>
                 <div class="form-group row">
-                    <label class="col-md-5 col-form-label text-md-right" for="radio01">性別</label>
+                    <label class="col-md-4 col-form-label text-md-right" for="radio01">性別</label>
                     <div class="col-md-6 mt-1">
-                        <div class="form-check form-check-inline">
+                        <div class="form-check">
                             <input class="form-check-input" id="inlineRadio01" name="sex" type="radio" value="男性" @if(old('sex', $sexName) == '男性') checked @endif />
                             <label class="form-check-label" for="inlineRadio01">男性</label>
                         </div>
-                        <div class="form-check form-check-inline">
+                        <div class="form-check">
                             <input class="form-check-input" id="inlineRadio02" name="sex" type="radio" value="女性" @if(old('sex', $sexName) == '女性') checked @endif />
                             <label class="form-check-label" for="inlineRadio02">女性</label>
                         </div>
-                        <div class="form-check form-check-inline">
+                        <div class="form-check">
                             <input class="form-check-input" id="inlineRadio03" name="sex" type="radio" value="その他" @if(old('sex', $sexName) == 'その他') checked @endif />
                             <label class="form-check-label" for="inlineRadio03">その他</label>
                         </div>
@@ -75,7 +75,7 @@
             </form>
             <hr>
             <div class="text-center pb-3">
-                <a class="btn btn-outline-danger" type="button" href="{{ route('user.deletePage', ['id' => $user->id]) }}">アカウント削除する</a>
+                <a class="btn btn-danger" type="button" href="{{ route('user.deletePage', ['id' => $user->id]) }}">アカウント削除する</a>
             </div>
         </div>
     </div>

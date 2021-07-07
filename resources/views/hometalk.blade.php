@@ -15,7 +15,7 @@
 
 <form method="POST" action="{{route('chat.add')}}">
     @csrf
-    <div class="mx-auto review-container justify-content-center py-3">
+    <div class="mx-auto row review-container py-3">
         <div class="input-group review-area">
             <textarea 
                 class="form-control" 
@@ -26,7 +26,7 @@
                 onkeydown="if(event.shiftKey&&event.keyCode==13){document.getElementById('submit').click();return false};"
                 autofocus
             ></textarea>
-            <button type="submit" id="submit" class="btn btn-outline-primary review-btn">Submit</button>
+            <button class="btn btn-outline-primary review-btn" id="submit" type="submit">Submit</button>
         </div>
     </div>
 </form>
