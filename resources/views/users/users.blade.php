@@ -19,6 +19,19 @@
         <div class="col-lg-4">
             <div class="card border" style="display: flow-root;">
                 <div class="card-header">
+                    @if($user->profile_image)
+                    <a href="{{ route('detail.user', $user->id) }}">
+                        <img 
+                            class="profile_image icon_image"
+                            src="{{ Storage::url($user->profile_image) }}"
+                            alt=""
+                        />
+                    </a>
+                    @else
+                    <a class="mb-5" href="{{ route('detail.user', $user->id) }}">
+                        <i class="fas fa-user-circle"></i>
+                    </a>
+                    @endif
                     <b>
                     @if(Auth::check())
                         <a href="{{ route('detail.user', $user->id) }}">
@@ -30,11 +43,6 @@
                     </b>
                     <span>from</span>
                     <b>{{ $user->country->country_name }}</b>
-                    {{-- @if($song)
-                    <span class="badge badge-pill badge-success">いいね {{ $user->favorite_user->count() }}</span>
-                    @else
-                    <span class="badge badge-pill badge-danger">未登録</span>
-                    @endif --}}
                 </div>
                 <div class="text-center">
                 @if(isset($song))

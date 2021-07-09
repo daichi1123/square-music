@@ -39,48 +39,45 @@
     </form>
 
     <p>全{{ $users->count() }}名</p>
-    <table class="table text-center mt-4" style="border-collapse: collapse" border="3">
-    <thead class="bg-success">
-        <tr>
-            <th>ユーザ名</th>
-            <th>プレイリスト数</th>
-            <th>国名</th>
-            <th>年齢</th>
-            <th>性別</th>
-            <th></th>
-        </tr>
-    </thead>
-    @foreach($users as $user)
-        @if(Auth::check())
-            @if (Auth::id() != $user->id)
-            <tbody class='h4'>
-                <tr>
-                    <td>{{ $user->first_name }}</td>
-                    <td>
-                        @if(isset($songs))
-                            {{ $user->songs->count() }}
-                        @else
-                            0
-                        @endif
-                    </td>
-                    <td>{{ $user->country->country_name }}</td>
-                    <td>{{ $user->age->age_name }}</td>
-                    <td>{{ $user->sex }}</td>
-                    <td name="name">
-                        <a class="btn btn-primary" href="{{ action('UsersController@showDetail', $user->id) }}">ユーザ詳細画面</a>
-                    </td>
-                </tr>
-            </tbody>
+    <div class="row my-3">
+        @foreach ($users as $key => $user)
+            @php
+                $song=$user->songs->last();
+            @endphp
+    
+            @if($loop->iteration % 3 == 1 && $loop->iteration != 1)
+    </div>
+    <div class="row py-3 pb-1">
             @endif
-        @endif
-    @endforeach
-    </table>
-    <div class="row justify-content-center">
+            <div class="col-lg-4">
+                <div class="card" style="display: flow-root;">
+                @if ($user->profile_image)
+                    <img 
+                        class="profile_image card-img-top h-100"
+                        src="{{ Storage::url($user->profile_image) }}"
+                        alt=""
+                    />
+                @else
+                    <div class="text-center">
+                        <i class="fas fa-user"></i>
+                    </div>
+                @endif
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $user->first_name }}</h5>
+                        <p class="card-text">{{$user->self_introduction}}</p>
+                        <p class="card-text">{{ $user->country->country_name }}</p>
+                        <a class="btn btn-primary" href="{{ action('UsersController@showDetail', $user->id) }}">ユーザ詳細</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+    <div class="row">
         {{ $users->appends(request()->input())->links() }}
     </div>
 
     @if( $users->count() <= 0 )
-    <div class="row justify-content-center">
+    <div class="row text-center">
         <h2 class="py-5">検索結果がありませんでした</h2>
     </div>
     @endif

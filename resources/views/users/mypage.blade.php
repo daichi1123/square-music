@@ -26,24 +26,34 @@
         </div>
     </div>
 
-    {{-- <div class="col-lg-6 mt-4 mb-3">
-        <div class="card text-center">
-            <div class="card-header">
-                <h4>
-                    <b>
-                        総いいね数
-                    </b> 
-                </h4>
-            </div>
-            <div class="card-body">
-                <h4 class="card-title">
-                    <b>
-                    
-                    </b>
-                </h4>
-            </div>
+    @if (isset($user->profile_image))
+    <img 
+        class="profile_image"
+        src="{{ Storage::url($user->profile_image) }}"
+        alt=""
+        width="150px"
+        height="100px"
+    />
+    @endif
+    <form action="{{route('user.profile')}}" enctype="multipart/form-data" method="post">
+        @csrf
+        <div class="form-group-sm">
+            <label class="d-block mt-2" for="image">プロフィール画像</label>
+            <input class="ml-3 mr-2 d-inline" type="file" name="profile_image" />
         </div>
-    </div> --}}
+        <div class="d-flex my-3 col-sm-8 col-auto">
+            <input class="btn btn-primary" type="submit" value="画像アップロード" />
+        </div>
+    </form>
+
+    <form action="{{route('profile.delete', ['id'=>$user->id])}}" method="post">
+        @csrf
+        @method('DELETE')
+        <div class="d-flex my-3 col-sm-8 col-auto">
+            <input class="btn btn-danger" type="submit" value="削除" />
+        </div>
+    </form>
+    </div>
     <div class="col-lg-12 mb-4">
         <div class="card text-center">
             <div class="card-header">
