@@ -28,7 +28,8 @@ class User extends Authenticatable
         'age_id',
         'sex',
         'self_introduction',
-        'insta_id'
+        'insta_id',
+        'profile_image'
     ];
 
     /**

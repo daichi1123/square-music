@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -27,11 +30,6 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
-Route::group(['prefix' => 'users/{id}'], function () {
-    Route::get('followings', 'UsersController@followings')->name('followings');
-    Route::get('followers', 'UsersController@followers')->name('followers');
-});
-
 Route::prefix('songs/{song}')->name('songs.')->group(function () {
     Route::put('/favorite', 'SongsController@favorite')->name('favorite')->middleware('auth');
     Route::delete('/favorite', 'SongsController@unfavorite')->name('unfavorite')->middleware('auth');
@@ -40,10 +38,10 @@ Route::prefix('songs/{song}')->name('songs.')->group(function () {
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 
-    // Route::group(['prefix' => 'songs/{id}'], function () {
-    //     Route::post('favorite', 'FavoriteController@store')->name('favorites.favorite');
-    //     Route::delete('unfavorite', 'FavoriteController@destroy')->name('favorites.unfavorite');
-    // });
+
+    // プロフィール画像の設定
+    Route::post('profile/store', 'UsersController@profileStore')->name('user.profile');
+    Route::delete('profile/{id}/delete', 'UsersController@deleteImage')->name('profile.delete');
 
     // instaIDの登録
     Route::put('/register/{id}', 'UsersController@updateInstaId')->name('register.insta');
@@ -56,6 +54,9 @@ Route::group(['middleware' => 'auth'], function () {
 
         Route::post('follow', 'UserFollowController@store')->name('follow');
         Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
+
+        Route::get('followings', 'UsersController@followings')->name('followings');
+        Route::get('followers', 'UsersController@followers')->name('followers');
     });
 
 

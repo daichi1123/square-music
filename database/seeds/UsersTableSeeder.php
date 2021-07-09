@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\DB;
 
 class UsersTableSeeder extends Seeder
 {
@@ -21,6 +23,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '男性',
             'self_introduction' => 'これはテストです。',
             'insta_id' => 'instagram',
+            'profile_image' => 'public/uploads/ujq7ViES93SNIDAoQfoh4XIg96o0sxlS7IxauHmA.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
@@ -31,8 +34,9 @@ class UsersTableSeeder extends Seeder
             'country_id' => '1',
             'age_id' => '1',
             'sex' => '女性',
-            'insta_id' => 'instagram',
             'self_introduction' => 'これはテストです。',
+            'insta_id' => 'instagram',
+            'profile_image' => 'public/uploads/6gesFiQZ7RcoCbeSm6rX8UPee9SoYr9cuoAU6pTX.png',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
@@ -69,6 +73,7 @@ class UsersTableSeeder extends Seeder
             'age_id' => '3',
             'sex' => '男性',
             'self_introduction' => 'This is a test',
+            'profile_image' => 'public/uploads/ib6rE9e8H1hRgqwedk3PbNqjhset5dvhoErfg8U4.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
@@ -81,6 +86,7 @@ class UsersTableSeeder extends Seeder
             'age_id' => '3',
             'sex' => '女性',
             'insta_id' => 'instagram',
+            'profile_image' => 'public/uploads/AQfUuQtgm5az8a4WbNNitmRqPIYuhUtmHtfVifBE.jpg',
             'self_introduction' => 'This is a test',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -93,6 +99,7 @@ class UsersTableSeeder extends Seeder
             'age_id' => '2',
             'sex' => '女性',
             'self_introduction' => 'Esto es una prueba',
+            'profile_image' => 'public/uploads/qyleMZVIM8TmayGKul6jImgRoC1MVXCGNw8r51Gy.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
@@ -105,6 +112,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '男性',
             'insta_id' => 'instagram',
             'self_introduction' => '这是一个测试',
+            'profile_image' => 'public/uploads/GC4utimDr8o9pdjSY80Mdg2Y9htOjPUGGQ27q7Pf.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
@@ -116,6 +124,7 @@ class UsersTableSeeder extends Seeder
             'age_id' => '6',
             'sex' => '女性',
             'insta_id' => 'instagram',
+            'profile_image' => 'public/uploads/WnSVApVOWthGv9La5jq7zw36W6eKHsNtAPVRi6nE.jpg',
             'self_introduction' => 'Questa è una prova',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
@@ -129,6 +138,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '男性',
             'insta_id' => 'instagram',
             'self_introduction' => "C'est un test",
+            'profile_image' => 'public/uploads/VCQYVV4dPPcZZLQToVAcSz7DP8luV8jbxFyiZaWl.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
     }

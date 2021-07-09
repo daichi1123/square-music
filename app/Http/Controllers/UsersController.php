@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateUserRequest;
 use App\Http\Requests\UpdateInstaIdRequest;
+use App\Http\Requests\ImageRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -152,6 +153,65 @@ class UsersController extends Controller
     }
 
     /**
+     * プロフィールの画像を登録
+     * 
+     * @param  App\Http\Requests\ImageRequest;  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function profileStore(ImageRequest $request)
+    {
+        $userProfile = $request->profile_image;
+
+        if ($userProfile) {
+            $userProfilePath = $userProfile->store('public/uploads');
+        } else {
+            $userProfilePath = "";
+        }
+
+        // デッドロック時のトランザクションリトライ回数
+        $retryTimes = 5;
+
+        $user = Auth::user();
+        if ($user->id) {
+            $userId = $user->id;
+        }
+
+        if ($userId && $userProfile) {
+            DB::transaction(function () use ($user, $userProfilePath) {
+                $user->profile_image = $userProfilePath;
+                $user->save();
+            }, $retryTimes);
+        }
+
+        return back()->with('flash_message', __('プロフィール画像を登録完了'));
+    }
+
+    /**
+     * プロフィール画像削除
+     * 
+     * @param int $id
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteImage($id)
+    {
+        $userInfo = User::findOrFail($id);
+
+        if (Auth::id() === $userInfo->id) {
+            $deleteProfile = Null;
+
+            // デッドロック時のトランザクションリトライ回数
+            $retryTimes = 5;
+
+            DB::transaction(function () use ($userInfo, $deleteProfile) {
+                $userInfo->profile_image = $deleteProfile;
+                $userInfo->save();
+            }, $retryTimes);
+        }
+
+        return back()->with('flash_message', __('プロフィール画像を削除成功'));
+    }
+
+    /**
      * 自身のユーザ情報を削除するページを表示
      * 
      * @param int $id
@@ -194,16 +254,21 @@ class UsersController extends Controller
     public function followings($id)
     {
         $user = User::find($id);
-        $followings = $user->followings()->paginate(9);
 
-        $data = [
-            'user' => $user,
-            'users' => $followings,
-        ];
+        if (Auth::id() === $user->id) {
+            $followings = $user->followings()->paginate(9);
 
-        $data += $this->counts($user);
+            $data = [
+                'user' => $user,
+                'users' => $followings,
+            ];
 
-        return view('users.followings', $data);
+            $data += $this->counts($user);
+
+            return view('users.followings', $data);
+        } else {
+            return back();
+        }
     }
 
     /**
@@ -214,17 +279,22 @@ class UsersController extends Controller
      */
     public function followers($id)
     {
-        $user = User::find($id);
-        $followers = $user->followers()->paginate(9);
+        $user = User::findOrFail($id);
 
-        $data = [
-            'user' => $user,
-            'users' => $followers,
-        ];
+        if (Auth::id() === $user->id) {
+            $followers = $user->followers()->paginate(9);
 
-        $data += $this->counts($user);
+            $data = [
+                'user' => $user,
+                'users' => $followers,
+            ];
 
-        return view('users.followers', $data);
+            $data += $this->counts($user);
+
+            return view('users.followers', $data);
+        } else {
+            return back();
+        }
     }
 
     /**
