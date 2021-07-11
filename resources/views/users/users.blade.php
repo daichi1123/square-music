@@ -17,7 +17,7 @@
 <div class="row py-3 pb-1">
         @endif
         <div class="col-lg-4">
-            <div class="card border" style="display: flow-root;">
+            <div class="card border">
                 <div class="card-header">
                     @if($user->profile_image)
                     <a href="{{ route('detail.user', $user->id) }}">
@@ -28,7 +28,7 @@
                         />
                     </a>
                     @else
-                    <a class="mb-5" href="{{ route('detail.user', $user->id) }}">
+                    <a class="mb-5" href="{{ route('detail.user', $user->id) }}" style="font-size: 30px;">
                         <i class="fas fa-user-circle"></i>
                     </a>
                     @endif
@@ -43,6 +43,15 @@
                     </b>
                     <span>from</span>
                     <b>{{ $user->country->country_name }}</b>
+                    @if( Auth::id() !== $user->id && Auth::check())
+                    <follow-button
+                        style="display: inline-block;"
+                        :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+                        :authorized='@json(Auth::check())'
+                        endpoint="{{ route('users.follow', ['id' => $user->id]) }}"
+                    >
+                    </follow-button>
+                    @endif
                 </div>
                 <div class="text-center">
                 @if(isset($song))
@@ -104,7 +113,7 @@
                     @else
                         <span class="pl-1"></span>
                     @endif
-                    @include('follow.follow_button', ['user'=>$user])
+                    <hr class="card-line" />
                 @endif
                 </div>
                 @if(isset($song->comment))

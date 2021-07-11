@@ -15,7 +15,7 @@
 
 <form method="POST" action="{{route('chat.add')}}">
     @csrf
-    <div class="mx-auto row review-container py-3">
+    <div class="mx-auto review-container py-3">
         <div class="input-group review-area">
             <textarea 
                 class="form-control" 
@@ -30,6 +30,7 @@
         </div>
     </div>
 </form>
+
 
 @section('js')
 <script src="{{ asset('js/main.js') }}"></script>

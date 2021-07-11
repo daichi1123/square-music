@@ -345,4 +345,45 @@ class UsersController extends Controller
 
         return view('users.user_detail', compact('user', 'songs', 'data'));
     }
+
+    /**
+     * Follow処理
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param string $id
+     * @return \Illuminate\Http\Response
+     */
+    public function follow(Request $request, string $id)
+    {
+        $user = User::where('id', $id)->first();
+
+        if ($user->id === $request->user()->id) {
+            return abort('404', 'Cannot follow yourself.');
+        }
+
+        $request->user()->followings()->detach($user);
+        $request->user()->followings()->attach($user);
+
+        return ['id' => $id];
+    }
+
+    /**
+     * Follow外す処理
+     * 
+     * @param  \Illuminate\Http\Request  $request
+     * @param string $id
+     * @return \Illuminate\Http\Response
+     */
+    public function unfollow(Request $request, string $id)
+    {
+        $user = User::where('id', $id)->first();
+
+        if ($user->id === $request->user()->id) {
+            return abort('404', 'Cannot follow yourself.');
+        }
+
+        $request->user()->followings()->detach($user);
+
+        return ['id' => $id];
+    }
 }

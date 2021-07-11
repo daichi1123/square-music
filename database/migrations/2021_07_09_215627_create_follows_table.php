@@ -1,10 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-class CreateUserFollowTable extends Migration
+class CreateFollowsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,19 @@ class CreateUserFollowTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_follow', function (Blueprint $table) {
+        Schema::create('follows', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->index();
-            $table->integer('follow_id')->unsigned()->index();
+            $table->integer('follower_id')->unsigned()->index();
+            $table->integer('followee_id')->unsigned()->index();
+            $table->foreign('follower_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+            $table->foreign('followee_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
             $table->timestamps();
-            $table->foreign('user_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->foreign('follow_id')
-                ->references('id')
-                ->on('users')
-                ->onDelete('cascade');
-            $table->unique(['user_id', 'follow_id']);
         });
     }
 
@@ -37,6 +36,6 @@ class CreateUserFollowTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_follow');
+        Schema::dropIfExists('follows');
     }
 }

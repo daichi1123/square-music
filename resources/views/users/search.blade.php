@@ -50,7 +50,7 @@
     <div class="row py-3 pb-1">
             @endif
             <div class="col-lg-4">
-                <div class="card" style="display: flow-root;">
+                <div class="card border" style="display: flow-root;">
                 @if ($user->profile_image)
                     <img 
                         class="profile_image card-img-top h-100"

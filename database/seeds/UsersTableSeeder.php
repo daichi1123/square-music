@@ -36,7 +36,7 @@ class UsersTableSeeder extends Seeder
             'sex' => '女性',
             'self_introduction' => 'これはテストです。',
             'insta_id' => 'instagram',
-            'profile_image' => 'public/uploads/6gesFiQZ7RcoCbeSm6rX8UPee9SoYr9cuoAU6pTX.png',
+            'profile_image' => 'public/uploads/zs4TrgUhlJujEroNdDveNNh431vaLAAidNgX4IuJ.jpg',
             'created_at' => date('Y-m-d H:i:s'),
         ]);
         DB::table('users')->insert([
