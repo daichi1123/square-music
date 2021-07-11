@@ -62,7 +62,7 @@
         <h3 class="mt-5">Instagram&nbsp;ID登録・変更</h3>
         <div class="form-group mt-3">
             <div class="col-6">
-                {!! Form::open(['route' => ['register.insta', $user->id],'method'=>'put']) !!}
+                {!! Form::open(['route' => ['users.insta', $user->id],'method'=>'put']) !!}
                     <div class="form-group">
                     {!! Form::text('insta_id', $user->insta_id , ['class' => 'form-control input-lg', 'placeholder' => 'InstagramのIDを記述ください' ]) !!}
                     </div>

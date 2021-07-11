@@ -26,7 +26,7 @@
                 <label>本当によろしいですか？</label>
             </div>
             <div class="modal-footer">
-                <form action="{{ route('user.delete', ['id' => $userComfirm->id]) }}" method="POST">
+                <form action="{{ route('users.delete', ['id' => $userComfirm->id]) }}" method="POST">
                 @csrf
                 @method('PUT')
                 <input class="btn btn-danger" id="delete_button" type="submit" value="削除">
