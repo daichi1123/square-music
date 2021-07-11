@@ -7,30 +7,59 @@
         <div class="col-lg-12 mt-2">
             <h1>ユーザー</h1>
         </div>
-        <div class="col-lg-12 mt-4 mb-3">
-            <h2 class="text-left">
-                ユーザ名：
-                {{ $user->last_name }}
-                {{ $user->middle_name }} 
-                {{ $user->first_name }}
-                さん
-            </h2>
+
+        <div>
+            <div style="float: left;">
+                <section class="mt-3 mb-5">
+                    <h2>
+                        ユーザ名：
+                        {{ $user->last_name }}
+                        {{ $user->middle_name }} 
+                        {{ $user->first_name }}
+                        さん
+                    </h2>
+                </section>
+                <section class="text-left">
+                    <h2>
+                        国名：{{ $user->country->country_name }}
+                    </h2>
+                    <h2>
+                        性別：{{ $user->sex }}
+                    </h2>
+                    <h2>
+                        年齢：{{ $user->age->age_name }}
+                    </h2>
+                </section>
+            </div>
+            <div style="float: right;">
+                @if($user->profile_image)
+                <section class="mb-4 mt-4 mr-5">
+                    <img 
+                        class="profile_image detail_image"
+                        src="{{ Storage::url($user->profile_image) }}"
+                        alt=""
+                    />
+                </section>
+                @else
+                <section class="mb-3 mr-3">
+                    <i class="fas fa-user-circle" style="font-size: 180px;"></i>
+                </section>
+                @endif
+
+                @if( Auth::id() !== $user->id && Auth::check())
+                <section class="mr-5">
+                    <follow-button
+                        class="follow-detail-page"
+                        :initial-is-followed-by='@json($user->isFollowedBy(Auth::user()))'
+                        :authorized='@json(Auth::check())'
+                        endpoint="{{ route('users.follow', ['id' => $user->id]) }}"
+                    >
+                    </follow-button>
+                </section>
+                @endif
+                
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-lg-12">
-            <h2 class="text-left">
-                国名：{{ $user->country->country_name }}
-            </h2>
-        </div>
-    </div>
-    <div>
-        <h2>
-            性別：{{ $user->sex }}
-        </h2>
-        <h2>
-            年齢：{{ $user->age->age_name }}
-        </h2>
     </div>
     <div class="col-lg-12 my-3">
         <div class="card text-center">
@@ -59,7 +88,6 @@
             <i class="far fa-comment fa-flip-horizontal"></i>&nbsp;<span>チャットへ</span>
         </a>
     </div>
-    @include('follow.follow_button', ['user'=>$user])
     <div class="text-left">
         <h2 class="py-3">プレイリスト一覧</h2>
     </div>

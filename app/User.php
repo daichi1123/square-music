@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use App\Notifications\ResetPassword;
 
 class User extends Authenticatable
@@ -67,78 +68,26 @@ class User extends Authenticatable
         return $this->hasMany(Song::class);
     }
 
-    // public function favorites()
-    // {
-    //     return $this->belongsToMany(Song::class, 'favorites', 'user_id', 'song_id')->withTimestamps();
-    // }
-
     public function favorites_user()
     {
         return $this->belongsToMany(Song::class, 'favorites', 'song_id', 'user_id')->withTimestamps();
     }
 
-
-    public function followings()
+    // 追加
+    public function followers(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_follow', 'user_id', 'follow_id')->withTimestamps();
+        return $this->belongsToMany('App\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
     }
 
-    public function followers()
+    public function followings(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_follow', 'follow_id', 'user_id')->withTimestamps();
+        return $this->belongsToMany('App\User', 'follows', 'follower_id', 'followee_id')->withTimestamps();
     }
 
-    public function is_following($userId)
+    public function isFollowedBy(?User $user): bool
     {
-        return $this->followings()->where('follow_id', $userId)->exists();
+        return $user
+            ? (bool)$this->followers->where('id', $user->id)->count()
+            : false;
     }
-
-    public function follow($userId)
-    {
-        $existing = $this->is_following($userId);
-        $myself = $this->id == $userId;
-
-        if (!$existing && !$myself) {
-            $this->followings()->attach($userId);
-        }
-    }
-
-    public function unfollow($userId)
-    {
-        $existing = $this->is_following($userId);
-        $myself = $this->id == $userId;
-
-        if ($existing && !$myself) {
-            $this->followings()->detach($userId);
-        }
-    }
-
-    // public function favorite($songId)
-    // {
-    //     $exist = $this->is_favorite($songId);
-
-    //     if ($exist) {
-    //         return false;
-    //     } else {
-    //         $this->favorites()->attach($songId);
-    //         return true;
-    //     }
-    // }
-
-    // public function unfavorite($songId)
-    // {
-    //     $exist = $this->is_favorite($songId);
-
-    //     if ($exist) {
-    //         $this->favorites()->detach($songId);
-    //         return true;
-    //     } else {
-    //         return false;
-    //     }
-    // }
-
-    // public function is_favorite($songId)
-    // {
-    //     return $this->favorites()->where('song_id', $songId)->exists();
-    // }
 }

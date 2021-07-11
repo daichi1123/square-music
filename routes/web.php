@@ -35,6 +35,14 @@ Route::prefix('songs/{song}')->name('songs.')->group(function () {
     Route::delete('/favorite', 'SongsController@unfavorite')->name('unfavorite')->middleware('auth');
 });
 
+// 今回の部分
+Route::prefix('users')->name('users.')->group(function () {
+    Route::middleware('auth')->group(function () {
+        Route::put('/{id}/follow', 'UsersController@follow')->name('follow');
+        Route::delete('/{id}/follow', 'UsersController@unfollow')->name('unfollow');
+    });
+});
+
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('users', 'UsersController', ['only' => ['show']]);
 
@@ -51,9 +59,6 @@ Route::group(['middleware' => 'auth'], function () {
         Route::put('/update', 'UsersController@updateUser')->name('user.update');
         Route::get('/delete/confirm', 'UsersController@deletePage')->name('user.deletePage');
         Route::put('/delete', 'UsersController@deleteUser')->name('user.delete');
-
-        Route::post('follow', 'UserFollowController@store')->name('follow');
-        Route::delete('unfollow', 'UserFollowController@destroy')->name('unfollow');
 
         Route::get('followings', 'UsersController@followings')->name('followings');
         Route::get('followers', 'UsersController@followers')->name('followers');
