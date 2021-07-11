@@ -62,8 +62,6 @@
 
 </div>
 
-@include('follow.follow_button', compact('user'))
-
 <ul class="nav nav-tabs nav-justified mt-5 mb-2">
     <li class="nav-item nav-link {{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', auth()->user()->id) }}">Playlist<br><div class="badge badge-secondary">{{ $count_songs }}</div></a></li>
     <li class="nav-item nav-link {{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('followers', ['id'=>$user->id]) }}">フォロワー<br><div class="badge badge-secondary">{{ $count_followers }}</div></a></li>
