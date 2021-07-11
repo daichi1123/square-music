@@ -25,7 +25,7 @@
                     </a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="{{ route('users.show', auth()->user()->id) }}">
+                    <a class="nav-link" href="{{ route('users.mypage', auth()->user()->id) }}">
                     <i class="fa fa-user-alt"></i>
                     マイページ
                     <span class="sr-only">(current)</span>

@@ -5,7 +5,7 @@
 <div class="pb-5">
     <div class="card border">
         <div class="card-header">ユーザ情報修正</div>
-            <form action="{{ route('user.update', ['id' => $user->id]) }}" method="post">
+            <form action="{{ route('users.update', ['id' => $user->id]) }}" method="post">
             @csrf
             @method('PUT')
                 <div class="form-group mt-5">
@@ -75,7 +75,7 @@
             </form>
             <hr>
             <div class="text-center pb-3">
-                <a class="btn btn-danger" type="button" href="{{ route('user.deletePage', ['id' => $user->id]) }}">アカウント削除する</a>
+                <a class="btn btn-danger" type="button" href="{{ route('users.deletePage', ['id' => $user->id]) }}">アカウント削除する</a>
             </div>
         </div>
     </div>

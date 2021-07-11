@@ -29,7 +29,7 @@
                 </section>
                 @endif
 
-                <form action="{{route('user.profile')}}" enctype="multipart/form-data" method="post">
+                <form action="{{route('profile.store')}}" enctype="multipart/form-data" method="post">
                     @csrf
                     <section class="text-center">
                         <label class="" for="image">
@@ -54,7 +54,7 @@
         <div style="float: right;">
             <section>
                 <h1>
-                    <a class="badge badge-pill badge-success" href="{{ route('user.edit', ['id' => $user->id]) }}">ユーザ情報修正</a>
+                    <a class="badge badge-pill badge-success" href="{{ route('users.edit', ['id' => $user->id]) }}">ユーザ情報修正</a>
                 </h1>
             </section>
         </div>
@@ -63,7 +63,7 @@
 </div>
 
 <ul class="nav nav-tabs nav-justified mt-5 mb-2">
-    <li class="nav-item nav-link {{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.show', auth()->user()->id) }}">Playlist<br><div class="badge badge-secondary">{{ $count_songs }}</div></a></li>
-    <li class="nav-item nav-link {{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('followers', ['id'=>$user->id]) }}">フォロワー<br><div class="badge badge-secondary">{{ $count_followers }}</div></a></li>
-    <li class="nav-item nav-link {{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('followings',['id'=>$user->id]) }}">フォロー中<br><div class="badge badge-secondary">{{ $count_followings }}</div></a></li>
+    <li class="nav-item nav-link {{ Request::is('users/' . $user->id) ? 'active' : '' }}"><a href="{{ route('users.mypage', auth()->user()->id) }}">Playlist<br><div class="badge badge-secondary">{{ $count_songs }}</div></a></li>
+    <li class="nav-item nav-link {{ Request::is('users/*/followers') ? 'active' : '' }}"><a href="{{ route('users.followers', ['id'=>$user->id]) }}">フォロワー<br><div class="badge badge-secondary">{{ $count_followers }}</div></a></li>
+    <li class="nav-item nav-link {{ Request::is('users/*/followings') ? 'active' : '' }}"><a href="{{ route('users.followings',['id'=>$user->id]) }}">フォロー中<br><div class="badge badge-secondary">{{ $count_followings }}</div></a></li>
 </ul>

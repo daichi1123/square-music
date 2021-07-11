@@ -20,7 +20,7 @@
             <div class="card border">
                 <div class="card-header">
                     @if($user->profile_image)
-                    <a href="{{ route('detail.user', $user->id) }}">
+                    <a href="{{ route('users.detail', $user->id) }}">
                         <img 
                             class="profile_image icon_image"
                             src="{{ Storage::url($user->profile_image) }}"
@@ -28,13 +28,13 @@
                         />
                     </a>
                     @else
-                    <a class="mb-5" href="{{ route('detail.user', $user->id) }}" style="font-size: 30px;">
+                    <a class="mb-5" href="{{ route('users.detail', $user->id) }}" style="font-size: 30px;">
                         <i class="fas fa-user-circle"></i>
                     </a>
                     @endif
                     <b>
                     @if(Auth::check())
-                        <a href="{{ route('detail.user', $user->id) }}">
+                        <a href="{{ route('users.detail', $user->id) }}">
                         {{ $user->first_name }}
                         </a>
                     @else
