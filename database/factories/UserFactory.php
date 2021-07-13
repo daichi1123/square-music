@@ -1,8 +1,9 @@
 <?php
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
+
 use App\User;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 use Faker\Generator as Faker;
 
 /*
@@ -18,10 +19,15 @@ use Faker\Generator as Faker;
 
 $factory->define(User::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'last_name' => $faker->lastName,
+        'middle_name' => '',
+        'first_name' => $faker->firstName,
+        'email' => $faker->unique()->email,
+        'password' => Hash::make('example100'),
+        'country_id' => 1,
+        'age_id' => 1,
+        'sex' => '男性',
+        'self_introduction' => $faker->text(50),
+        'insta_id' => 'instagram'
     ];
 });
