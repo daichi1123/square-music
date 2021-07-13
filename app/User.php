@@ -73,7 +73,6 @@ class User extends Authenticatable
         return $this->belongsToMany(Song::class, 'favorites', 'song_id', 'user_id')->withTimestamps();
     }
 
-    // 追加
     public function followers(): BelongsToMany
     {
         return $this->belongsToMany('App\User', 'follows', 'followee_id', 'follower_id')->withTimestamps();
