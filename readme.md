@@ -1,4 +1,4 @@
-![README toppage](image/toppage.png)
+<img width="1235" alt="top_page" src="https://user-images.githubusercontent.com/69447319/126920639-7b0cf737-d7ef-41d4-bfc8-9d61374b44a5.png">
 
 # 初めに
 
@@ -88,11 +88,11 @@
 <br>
 <p><b>新規登録</b></p>
 
-![README register](image/register.png)
+<img width="1239" alt="register" src="https://user-images.githubusercontent.com/69447319/126920725-f31a68ca-aaeb-4d83-a576-03abc3d703df.png">
 
 <p><b>ログイン</b></p>
 
-![README Image 1](image/login.gif)
+![db484e312fff8b7744fb11e77d21e3a7](https://user-images.githubusercontent.com/69447319/126938291-ec445acf-fff6-44a8-8d65-c1bf12159ee3.gif)
 
 <p>＊ログインは、テスト用に input タグの value属性 に
 <br>・メールアドレス<br>・パスワード<br>を記述しております。</p>
@@ -122,7 +122,7 @@
 <br>
 <p>＊<b>あいまい検索可能</b></p>
 
-![README search_for_users](image/search_users.png)
+<img width="1234" alt="search_page" src="https://user-images.githubusercontent.com/69447319/126920837-a4909a50-8f91-4351-91d4-b6c77e4ebd2b.png">
 
 <br>
 
@@ -143,19 +143,19 @@
 
 #### ユーザ新規登録ページ
 
-![README Image 1](image/register2.png)
+<img width="1320" alt="register_page_for_instagram" src="https://user-images.githubusercontent.com/69447319/126938036-abc959b1-84f4-45b8-af5c-e249704035c9.png">
 
 <br>
 
 #### プレイリスト登録ページ
 
-![README Image 1](image/insta_id2.png)
+<img width="1035" alt="playlist_register_page_for_instagram" src="https://user-images.githubusercontent.com/69447319/126938059-122e6e7f-6bd5-414d-a575-75317ab86cf1.png">
 
 <br>
 
 #### ユーザ編集
 
-![README Image 1](image/insta_id3.png)
+<img width="1033" alt="user_edit_page_for_instagram" src="https://user-images.githubusercontent.com/69447319/126938073-13a7bd41-2415-4212-bf9c-9d4402994071.png">
 
 <p>＊このいづれか３つの場所でInstaram IDを登録すると、instagramのアイコンが付与され、そこから登録したインスタアカウントページに飛ぶことができます。</p>
 
@@ -165,41 +165,48 @@
 
 <hr>
 
-<img src="image/playlist.png" width="300">
+<img width="331" alt="a playlist" src="https://user-images.githubusercontent.com/69447319/126920987-3f30e539-8e7a-4e7a-9b62-a088dd74ffda.png">
+
+#### Vue.jsを用いて<b>いいね</b>/<b>follow</b>機能を実装
+
+![8601327f22d1d1886710139ff7dcc3de](https://user-images.githubusercontent.com/69447319/126923428-10171e3a-2fe8-4d92-bf79-88fec82864a8.gif)
+
+![125ffb16e75ce7dbcec475d13b045df7](https://user-images.githubusercontent.com/69447319/126923507-c9e8a8c9-dec7-4a65-bda5-fa975595b37d.gif)
+
 
 <p><b>プレイリストの説明</b></p>
 <ul>
     <li>
         <p>ヘッダー部分</p>
         <ul>
+            <li>プロフィール画像</li>
             <li>名前</li>
             <li>国名</li>
-            <li>プレイリストのいいね数</li>
+            <li>フォローボタン</li>
         </ul>
     </li>
     <li>
         <p>フッター部分</p>
         <ul>
             <li>
+                <p>Instagramアイコン</p>
+                <p>自身が登録したinstagramプロフィールページに遷移する</p>
+            </li>
+            <li>
+                <p>吹き出しマーク</p>
+                <p>チャットルームへ遷移</p>
+            </li>
+            <li>
                 <p>ハートマーク</p>
                 <p>いいねを押すことができる</p>
             </li>
             <li>
-                <p>吹き出しマーク</p>
-                <p>チャットルームへ遷移</p>
-            </li>
-            <li>
-                <p>吹き出しマーク</p>
-                <p>チャットルームへ遷移</p>
-            </li>
-            <li>
-                <p>Instagramアイコン</p>
-                <p>自身が登録したinstagramプロフィールページに遷移する</p>
+                <p>総いいね数</p>
             </li>
         </ul>
     </li>
     <li>
-        <p>本体には、登録したプレイリスト表示</p>
+        <p>body部分には、登録したプレイリスト表示</p>
     </li>
 </ul>
 
@@ -237,7 +244,7 @@
 
 ### フロントエンド
 
-<p>HTML/CSS Bootstrap JavaScript jQuery3.3.1</p>
+<p>HTML/CSS Bootstrap JavaScript jQuery3.3.1 Vue.js</p>
 
 <br>
 
@@ -255,7 +262,7 @@
 
 ### デプロイ環境
 
-<p>Heroku</p>
+<p>AWS(Route53 / ALB(ELB) / Elastic IP / IAM / EC2 / RDS / S3(画像アップロード) / ACM)</p>
 
 <br>
 <br>
@@ -272,8 +279,8 @@
 | 4   | プロフィール編集                | ○      | -                                                          |
 | 5   | プレイリスト登録機能            | ○      | -                                                          |
 | 6   | プロフィール編集                | ○      | -                                                          |
-| 7   | フォロー機能                    | ○      | -                                                          |
-| 8   | いいね機能                      | ○      | -                                                          |
+| 7   | フォロー機能(非同期)                    | ○      | -                                                          |
+| 8   | いいね機能(非同期)                      | ○      | -                                                          |
 | 9   | ユーザ検索機能                  | ○      | -                                                          |
 | 10  | chat 機能を ajax を使用して実装 | ○      | -                                                          |
 | 11  | SNS を登録できる様にする        | ○      | -                                                          |
