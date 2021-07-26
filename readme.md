@@ -46,7 +46,7 @@
 
 ## 開発での使用言語
 
-<p>・HTML CSS JavaScript PHP/Laravel MySQL Docker Vagrant</p>
+<p>・HTML CSS JavaScript/Vue.js PHP/Laravel MySQL Docker Vagrant</p>
 
 <br>
 <br>
